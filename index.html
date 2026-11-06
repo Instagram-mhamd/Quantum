@@ -361,8 +361,17 @@ select.field { cursor: pointer; }
   .container, .container-wide { padding: 0 0.85rem; }
   h1 { font-size: 1.7rem !important; }
   h2 { font-size: 1.4rem !important; }
-  .navbar-inner { flex-wrap: wrap; }
-  .nav-links { width: 100%; justify-content: center; }
+  .navbar-inner { flex-wrap: wrap; gap: 0.5rem; }
+  .brand { flex: 0 0 auto; }
+  .nav-links {
+    width: 100%; justify-content: flex-start;
+    overflow-x: auto; flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    padding-bottom: 0.25rem;
+  }
+  .nav-links::-webkit-scrollbar { height: 4px; }
+  .nav-link, .nav-links .btn { flex-shrink: 0; white-space: nowrap; }
   .grid-2, .grid-3, .grid-4, .grid-5 { grid-template-columns: 1fr; }
   .grid-packages { grid-template-columns: repeat(2, 1fr); }
 }
@@ -390,11 +399,11 @@ select.field { cursor: pointer; }
     </div>
     <div class="nav-links">
       <button class="nav-link active" data-page="home">الرئيسية</button>
-      <button class="nav-link" data-page="freefire">فري فاير</button>
-      <button class="nav-link" data-page="pubg">ببجي</button>
-      <button class="nav-link" data-page="football">كرة القدم</button>
-      <button class="nav-link hide-mobile" id="myOrdersLink">طلباتي</button>
-      <button class="nav-link hide-mobile hidden" id="adminLink" data-page="admin">لوحة التحكم</button>
+      <button class="nav-link hide-mobile" data-page="freefire">فري فاير</button>
+      <button class="nav-link hide-mobile" data-page="pubg">ببجي</button>
+      <button class="nav-link hide-mobile" data-page="football">كرة القدم</button>
+      <button class="nav-link" id="myOrdersLink">طلباتي</button>
+      <button class="nav-link hidden" id="adminLink" data-page="admin">لوحة التحكم</button>
       <button class="btn btn-primary btn-sm" id="authBtn">دخول</button>
       <div id="userArea" class="hidden" style="display:none;align-items:center;gap:0.5rem">
         <div id="userAvatar" style="width:36px;height:36px;border-radius:50%;border:2px solid var(--purple);background-size:cover;background-position:center"></div>
@@ -420,6 +429,17 @@ select.field { cursor: pointer; }
 
   <!-- ===== الصفحة الرئيسية ===== -->
   <section id="page-home" class="page active">
+    <!-- شارة ترحيب المشرف (تظهر فقط للمشرفين) -->
+    <div id="adminWelcomeBadge" class="hidden" style="margin:1rem 0;text-align:center">
+      <div class="card-glass" style="display:inline-flex;align-items:center;gap:0.75rem;padding:0.75rem 1.25rem;border-color:var(--border-strong);box-shadow:0 0 30px -5px var(--purple-glow)">
+        <span class="crown-deco" style="font-size:1.5em"></span>
+        <div style="text-align:right">
+          <div class="text-xs" style="color:#a896c4">مرحباً بك أيها المشرف</div>
+          <div class="font-display" style="color:#fff;font-size:1rem" id="adminWelcomeName">—</div>
+        </div>
+        <span class="pill" id="adminWelcomeRole" style="background:linear-gradient(135deg,#fbbf24,#d97706);color:#1e1b2e">👑 أساسي</span>
+      </div>
+    </div>
     <div class="text-center mb-8">
       <div class="ornament mb-3"><span class="text-xs" style="font-weight:700;letter-spacing:2px">★ مرحباً بك في QUANTUM ★</span></div>
       <h1 class="text-gradient text-glow" style="font-size:2.5rem;letter-spacing:5px;margin-bottom:0.5rem">QUANTUM SHOP</h1>
@@ -809,11 +829,13 @@ select.field { cursor: pointer; }
         <!-- إدارة المشرفين -->
         <div class="card" style="padding:1.25rem">
           <h3 style="font-size:1.1rem;color:#fff;margin-bottom:0.5rem;display:flex;align-items:center;gap:0.5rem"><span class="crown-deco" style="font-size:1em"></span>إدارة المشرفين</h3>
-          <p class="text-sm" style="color:#a896c4;margin-bottom:1rem">أضف عدة مشرفين عبر UID. المشرف الأساسي لا يمكن حذفه.</p>
+          <p class="text-sm" style="color:#a896c4;margin-bottom:1rem">أضف عدة مشرفين بـ UID واسم. يمكنك تعديل أو حذف أي مشرف (عدا الأساسي).</p>
 
           <!-- إضافة مشرف جديد -->
           <div id="addAdminBox" class="hidden" style="margin-bottom:1rem;padding:0.75rem;background:var(--purple-soft);border:1px solid var(--border-bright);border-radius:var(--radius)">
-            <label class="field-label">UID المشرف الجديد</label>
+            <label class="field-label">اسم المشرف *</label>
+            <input id="newAdminName" type="text" class="field mb-3" placeholder="مثال: أحمد، Admin 2..." />
+            <label class="field-label">UID المشرف *</label>
             <input id="newAdminUid" type="text" class="field mb-3" dir="ltr" placeholder="ألصق UID المستخدم هنا..." />
             <div class="flex gap-2">
               <button id="confirmAddAdminBtn" class="btn btn-primary btn-sm flex-1">✓ إضافة</button>
@@ -842,6 +864,28 @@ select.field { cursor: pointer; }
       </div>
     </div>
   </section>
+
+  <!-- مودال تعديل مشرف -->
+  <div id="editAdminModal" class="modal hidden">
+    <div class="modal-box" style="max-width:420px;padding:1.5rem">
+      <div class="flex justify-between items-center mb-4">
+        <h3 style="font-size:1.2rem;color:#fff">✎ تعديل المشرف</h3>
+        <button class="modal-close" data-close-modal>×</button>
+      </div>
+      <form id="editAdminForm" style="display:flex;flex-direction:column;gap:0.75rem">
+        <input type="hidden" id="editAdminOriginalUid" />
+        <div>
+          <label class="field-label">اسم المشرف *</label>
+          <input id="editAdminName" type="text" required class="field" placeholder="اسم المشرف" />
+        </div>
+        <div>
+          <label class="field-label">UID المشرف *</label>
+          <input id="editAdminUid" type="text" required class="field" dir="ltr" placeholder="UID..." />
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">💾 حفظ التغييرات</button>
+      </form>
+    </div>
+  </div>
 
 </main>
 
@@ -1064,21 +1108,32 @@ async function loadAdmins() {
   try {
     const snap = await getDoc(doc(db, CONFIG_COL, ADMIN_DOC_ID));
     if (snap.exists() && Array.isArray(snap.data().list)) {
-      adminsList = snap.data().list;
+      // التنسيق الجديد: [{uid, name}, ...]
+      adminsList = snap.data().list.map(a =>
+        typeof a === "string" ? { uid: a, name: "مشرف" } : { uid: a.uid, name: a.name || "مشرف" }
+      );
     } else if (snap.exists() && snap.data().uid) {
-      // توافق مع الإصدار القديم
-      adminsList = [snap.data().uid];
+      // توافق مع الإصدار القديم (uid واحد)
+      adminsList = [{ uid: snap.data().uid, name: "مشرف" }];
     } else {
       adminsList = [];
     }
   } catch (e) { adminsList = []; }
-  // المشرف الأساسي دائماً في القائمة (ضمنياً)
+  // المشرف الأساسي دائماً مشرف (ضمنياً)
+}
+
+// الحصول على اسم المشرف الحالي (للترحيب)
+function getCurrentAdminName() {
+  if (!currentUser) return "";
+  if (isPrimaryAdmin) return "المشرف الأساسي";
+  const found = adminsList.find(a => a.uid === currentUser.uid);
+  return found ? found.name : "مشرف";
 }
 
 function checkAdminStatus() {
   if (!currentUser) { isAdmin = false; isPrimaryAdmin = false; return; }
   isPrimaryAdmin = currentUser.uid === PRIMARY_ADMIN_UID;
-  isAdmin = isPrimaryAdmin || adminsList.includes(currentUser.uid);
+  isAdmin = isPrimaryAdmin || adminsList.some(a => a.uid === currentUser.uid);
 }
 
 // ===== مراقبة المصادقة =====
@@ -1086,8 +1141,31 @@ onAuthStateChanged(auth, async (user) => {
   currentUser = user;
   if (user) { await loadAdmins(); checkAdminStatus(); }
   renderAuthArea();
+  renderAdminWelcome();
   if (isAdmin && currentPage === "admin") startOrdersSubscription();
 });
+
+// عرض شارة الترحيب في الصفحة الرئيسية (للمشرفين فقط)
+function renderAdminWelcome() {
+  const badge = $("adminWelcomeBadge");
+  if (!badge) return;
+  if (isAdmin && currentUser) {
+    $("adminWelcomeName").textContent = getCurrentAdminName();
+    const role = $("adminWelcomeRole");
+    if (isPrimaryAdmin) {
+      role.textContent = "👑 أساسي";
+      role.style.background = "linear-gradient(135deg,#fbbf24,#d97706)";
+      role.style.color = "#1e1b2e";
+    } else {
+      role.textContent = "👤 مشرف";
+      role.style.background = "var(--purple-soft)";
+      role.style.color = "var(--purple-bright)";
+    }
+    badge.classList.remove("hidden");
+  } else {
+    badge.classList.add("hidden");
+  }
+}
 
 function renderAuthArea() {
   const loggedIn = !!currentUser;
@@ -1594,10 +1672,10 @@ function renderAdminsList() {
   if (!list) return;
   const items = [];
   // المشرف الأساسي أولاً
-  items.push({ uid: PRIMARY_ADMIN_UID, primary: true });
+  items.push({ uid: PRIMARY_ADMIN_UID, name: "المشرف الأساسي", primary: true });
   // المشرفون المضافون
-  adminsList.forEach(uid => {
-    if (uid !== PRIMARY_ADMIN_UID) items.push({ uid, primary: false });
+  adminsList.forEach(a => {
+    if (a.uid !== PRIMARY_ADMIN_UID) items.push({ uid: a.uid, name: a.name || "مشرف", primary: false });
   });
   if (!items.length) {
     list.innerHTML = `<div class="text-xs" style="color:#a896c4;padding:0.5rem">لا يوجد مشرفون.</div>`;
@@ -1609,15 +1687,23 @@ function renderAdminsList() {
       ? `<span class="pill" style="background:linear-gradient(135deg,#fbbf24,#d97706);color:#1e1b2e">👑 أساسي</span>`
       : `<span class="pill pill-purple">👤 مشرف</span>`;
     const meBadge = isMe ? `<span class="pill pill-silver">أنت</span>` : "";
-    const deleteBtn = (item.primary || !isPrimaryAdmin)
-      ? "" // لا يمكن حذف الأساسي، والمشرفون العاديون لا يرون زر الحذف
-      : `<button data-remove-admin="${esc(item.uid)}" class="btn btn-danger btn-sm" title="حذف">🗑</button>`;
+    // أزرار: التعديل والحذف متاحان للأساسي فقط، ولا يظهران للأساسي نفسه
+    const canManage = isPrimaryAdmin && !item.primary;
+    const actionBtns = canManage
+      ? `<div class="flex gap-2">
+          <button data-edit-admin="${esc(item.uid)}" class="btn btn-ghost btn-sm" title="تعديل">✎</button>
+          <button data-remove-admin="${esc(item.uid)}" class="btn btn-danger btn-sm" title="حذف">🗑</button>
+        </div>`
+      : "";
     return `<div class="card" style="padding:0.75rem;display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap">
-      <div class="flex items-center gap-2" style="flex:1;min-width:160px">
+      <div class="flex items-center gap-2" style="flex:1;min-width:200px">
         ${badge}${meBadge}
-        <span class="text-xs" style="color:#a896c4;font-family:monospace" dir="ltr">${esc(item.uid)}</span>
+        <div style="min-width:0">
+          <div class="text-sm" style="color:#fff;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(item.name)}</div>
+          <div class="text-xs" style="color:#a896c4;font-family:monospace" dir="ltr">${esc(item.uid)}</div>
+        </div>
       </div>
-      ${deleteBtn}
+      ${actionBtns}
     </div>`;
   }).join("");
 }
@@ -1626,19 +1712,22 @@ function renderAdminsList() {
 $("addAdminBtn").addEventListener("click", () => {
   if (!isPrimaryAdmin) { toast("فقط المشرف الأساسي يمكنه إضافة مشرفين", "err"); return; }
   $("addAdminBox").classList.remove("hidden");
+  $("newAdminName").value = "";
   $("newAdminUid").value = "";
-  $("newAdminUid").focus();
+  $("newAdminName").focus();
 });
 $("cancelAddAdminBtn").addEventListener("click", () => {
   $("addAdminBox").classList.add("hidden");
 });
 $("confirmAddAdminBtn").addEventListener("click", async () => {
+  const newName = $("newAdminName").value.trim();
   const newUid = $("newAdminUid").value.trim();
+  if (!newName) { toast("اكتب اسم المشرف", "err"); return; }
   if (!newUid) { toast("اكتب UID صحيح", "err"); return; }
   if (newUid === PRIMARY_ADMIN_UID) { toast("هذا هو المشرف الأساسي أصلاً", "err"); return; }
-  if (adminsList.includes(newUid)) { toast("هذا المشرف موجود بالفعل", "err"); return; }
+  if (adminsList.some(a => a.uid === newUid)) { toast("هذا المشرف موجود بالفعل", "err"); return; }
   try {
-    const newList = [...adminsList, newUid];
+    const newList = [...adminsList, { uid: newUid, name: newName }];
     await setDoc(doc(db, CONFIG_COL, ADMIN_DOC_ID), { list: newList, updatedAt: serverTimestamp() }, { merge: true });
     adminsList = newList;
     renderAdminsList();
@@ -1653,17 +1742,68 @@ $("confirmAddAdminBtn").addEventListener("click", async () => {
 document.addEventListener("click", async (e) => {
   const del = e.target.closest("[data-remove-admin]");
   if (!del) return;
+  if (!isPrimaryAdmin) { toast("فقط المشرف الأساسي يمكنه الحذف", "err"); return; }
   const uidToRemove = del.dataset.removeAdmin;
   if (uidToRemove === PRIMARY_ADMIN_UID) { toast("لا يمكن حذف المشرف الأساسي", "err"); return; }
-  if (!confirm("متأكد من حذف هذا المشرف؟ سيفقد صلاحياته فوراً.")) return;
+  const admin = adminsList.find(a => a.uid === uidToRemove);
+  if (!confirm(`متأكد من حذف المشرف "${admin?.name || uidToRemove}"؟ سيفقد صلاحياته فوراً.`)) return;
   try {
-    const newList = adminsList.filter(u => u !== uidToRemove);
+    const newList = adminsList.filter(a => a.uid !== uidToRemove);
     await setDoc(doc(db, CONFIG_COL, ADMIN_DOC_ID), { list: newList, updatedAt: serverTimestamp() }, { merge: true });
     adminsList = newList;
     renderAdminsList();
     toast("✓ تم حذف المشرف", "ok");
   } catch (err) {
     toast("فشل الحذف: " + err.message, "err");
+  }
+});
+
+// تعديل مشرف — فتح المودال
+document.addEventListener("click", (e) => {
+  const ed = e.target.closest("[data-edit-admin]");
+  if (!ed) return;
+  if (!isPrimaryAdmin) { toast("فقط المشرف الأساسي يمكنه التعديل", "err"); return; }
+  const uidToEdit = ed.dataset.editAdmin;
+  const admin = adminsList.find(a => a.uid === uidToEdit);
+  if (!admin) { toast("المشرف غير موجود", "err"); return; }
+  $("editAdminOriginalUid").value = admin.uid;
+  $("editAdminName").value = admin.name || "";
+  $("editAdminUid").value = admin.uid;
+  $("editAdminModal").classList.remove("hidden");
+});
+
+// حفظ تعديل مشرف
+$("editAdminForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  if (!isPrimaryAdmin) { toast("فقط المشرف الأساسي يمكنه التعديل", "err"); return; }
+  const originalUid = $("editAdminOriginalUid").value;
+  const newName = $("editAdminName").value.trim();
+  const newUid = $("editAdminUid").value.trim();
+  if (!newName) { toast("اكتب اسم المشرف", "err"); return; }
+  if (!newUid) { toast("اكتب UID صحيح", "err"); return; }
+  if (newUid === PRIMARY_ADMIN_UID && originalUid !== PRIMARY_ADMIN_UID) {
+    toast("لا يمكن استخدام UID المشرف الأساسي", "err"); return;
+  }
+  // تحقق من عدم تكرار الـ UID (إذا تغير)
+  if (newUid !== originalUid && adminsList.some(a => a.uid === newUid)) {
+    toast("هذا UID مستخدم بالفعل لمشرف آخر", "err"); return;
+  }
+  try {
+    const newList = adminsList.map(a =>
+      a.uid === originalUid ? { uid: newUid, name: newName } : a
+    );
+    await setDoc(doc(db, CONFIG_COL, ADMIN_DOC_ID), { list: newList, updatedAt: serverTimestamp() }, { merge: true });
+    adminsList = newList;
+    renderAdminsList();
+    $("editAdminModal").classList.add("hidden");
+    // تحديث شارة الترحيب إن كان التعديل للمستخدم الحالي
+    if (currentUser && (originalUid === currentUser.uid || newUid === currentUser.uid)) {
+      checkAdminStatus();
+      renderAdminWelcome();
+    }
+    toast("✓ تم تحديث بيانات المشرف", "ok");
+  } catch (err) {
+    toast("فشل التحديث: " + err.message, "err");
   }
 });
 
