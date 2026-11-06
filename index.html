@@ -671,4 +671,1044 @@ select.field { cursor: pointer; }
         <p style="color:#cbd5e1;margin-bottom:1rem">ابنِ فريقك المثالي في EA FC Mobile — اشترِ اللاعبين والعروض بنقاط FC.</p>
         <div class="flex flex-wrap gap-2 justify-center">
           <span class="pill pill-purple">⚡ تسليم سريع</span>
-          <span class="pill pill-silver
+          <span class="pill pill-silver">⚽ لأبطال كرة القدم</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-3 mb-6">
+      <div class="step-card" id="fb-step1"><div class="step-num">1</div><div><div style="font-weight:700;color:#fff;font-size:0.85rem">اختر الباقة</div><div class="text-xs" style="color:#a896c4">حدد كمية نقاط FC</div></div></div>
+      <div class="step-card" id="fb-step2"><div class="step-num">2</div><div><div style="font-weight:700;color:#fff;font-size:0.85rem">أدخل بيانات الحساب</div><div class="text-xs" style="color:#a896c4">User ID + المنصة</div></div></div>
+      <div class="step-card" id="fb-step3"><div class="step-num">3</div><div><div style="font-weight:700;color:#fff;font-size:0.85rem">أكّد الطلب</div><div class="text-xs" style="color:#a896c4">تتبع حتى التسليم</div></div></div>
+    </div>
+
+    <div class="flex justify-between items-center mb-4 flex-wrap gap-2">
+      <h2 style="font-size:1.4rem;color:#fff">⚽ اختر باقة نقاط FC</h2>
+      <span class="text-xs" style="color:#a896c4">الأسعار بالدولار ($)</span>
+    </div>
+    <div id="fb-packagesGrid" class="grid-packages mb-6">
+      <div style="grid-column:1/-1;text-align:center;color:#a896c4;padding:2rem 0">⏳ جارٍ تحميل الباقات...</div>
+    </div>
+
+    <div id="fb-orderFormSection" class="card-glass hidden mb-6" style="padding:1.5rem">
+      <div class="flex justify-between items-center mb-4">
+        <h2 style="font-size:1.2rem;color:#fff">📝 تفاصيل الطلب</h2>
+        <button class="btn btn-ghost btn-sm" data-cancel="fb">إلغاء</button>
+      </div>
+      <div id="fb-orderPreview" class="card mb-4" style="padding:0.75rem"></div>
+      <form id="fb-orderForm" style="display:flex;flex-direction:column;gap:1rem">
+        <div>
+          <label class="field-label">User ID (معرّف المستخدم في FC Mobile) *</label>
+          <input id="fb-playerId" type="text" required class="field" placeholder="مثال: abc123def456" dir="ltr" />
+          <div class="text-xs" style="color:#6b5a86;margin-top:0.25rem">تجده في الإعدادات → الحساب → معرّف المستخدم.</div>
+        </div>
+        <div class="grid-2">
+          <div>
+            <label class="field-label">المنصة *</label>
+            <select id="fb-platform" required class="field">
+              <option value="">اختر المنصة...</option>
+              <option value="android">Android</option>
+              <option value="ios">iOS</option>
+            </select>
+          </div>
+          <div>
+            <label class="field-label">حساب EA (اختياري)</label>
+            <input id="fb-eaAccount" type="text" class="field" placeholder="بريد حساب EA" dir="ltr" />
+          </div>
+        </div>
+        <div>
+          <label class="field-label">ملاحظات (اختياري)</label>
+          <textarea id="fb-notes" class="field" rows="2" placeholder="أي تفاصيل إضافية..."></textarea>
+        </div>
+        <div id="fb-orderError" class="hidden" style="padding:0.75rem;border-radius:10px;font-size:0.85rem;background:rgba(239,68,68,0.12);border:1px solid rgba(239,68,68,0.4);color:#fca5a5"></div>
+        <button type="submit" class="btn btn-primary btn-block btn-lg">⚽ تأكيد الطلب</button>
+      </form>
+    </div>
+
+    <div class="grid-auto">
+      <div class="card" style="padding:1.25rem">
+        <h3 style="font-size:1rem;color:#fff;margin-bottom:0.75rem;display:flex;align-items:center;gap:0.5rem"><span class="coin-icon" style="font-size:1.1em"></span>كيف تحصل على User ID؟</h3>
+        <ol style="padding-right:1.25rem;color:#cbd5e1;font-size:0.85rem;line-height:1.8">
+          <li>افتح لعبة FC Mobile</li>
+          <li>اضغط على صورة ملفك</li>
+          <li>اذهب إلى الإعدادات → Account</li>
+          <li>ستجد User ID هناك</li>
+        </ol>
+      </div>
+      <div class="card" style="padding:1.25rem">
+        <h3 style="font-size:1rem;color:#fff;margin-bottom:0.75rem">ℹ️ معلومات مهمة</h3>
+        <ul style="padding:0;list-style:none;color:#cbd5e1;font-size:0.85rem;line-height:1.8">
+          <li>✓ التسليم يدوي لضمان وصول كل نقطة</li>
+          <li>✓ لا نطلب كلمة سر حسابك أبداً</li>
+          <li>✓ اختر المنصة الصحيحة</li>
+          <li style="color:#fbbf24">⚠ تأكد من User ID قبل التأكيد</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== لوحة تحكم المشرف ===== -->
+  <section id="page-admin" class="page">
+    <div class="game-hero" style="margin-bottom:1rem">
+      <div style="position:relative;z-index:1;text-align:center">
+        <div class="pill pill-purple" style="margin-bottom:0.5rem"><span class="crown-deco" style="font-size:0.9em"></span><span>ADMIN PANEL</span></div>
+        <h1 class="text-gradient" style="font-size:1.8rem;letter-spacing:3px">لوحة تحكم المشرف</h1>
+        <p style="color:#a896c4;font-size:0.85rem;margin-top:0.25rem">إدارة الطلبات والباقات والإعدادات</p>
+      </div>
+    </div>
+
+    <div class="grid-5 mb-6">
+      <div class="stat-card"><div class="text-xs" style="color:#a896c4;margin-bottom:0.25rem">إجمالي الطلبات</div><div id="cntTotal" class="stat-num">0</div></div>
+      <div class="stat-card"><div class="text-xs" style="color:#a896c4;margin-bottom:0.25rem">بانتظار</div><div id="cntPending" class="stat-num" style="color:#fbbf24;-webkit-text-fill-color:#fbbf24">0</div></div>
+      <div class="stat-card"><div class="text-xs" style="color:#a896c4;margin-bottom:0.25rem">قيد المعالجة</div><div id="cntProgress" class="stat-num" style="color:#38bdf8;-webkit-text-fill-color:#38bdf8">0</div></div>
+      <div class="stat-card"><div class="text-xs" style="color:#a896c4;margin-bottom:0.25rem">مكتمل</div><div id="cntDone" class="stat-num" style="color:#22c55e;-webkit-text-fill-color:#22c55e">0</div></div>
+      <div class="stat-card"><div class="text-xs" style="color:#a896c4;margin-bottom:0.25rem">الإيراد</div><div id="cntRevenue" class="stat-num" style="color:#fbbf24;-webkit-text-fill-color:#fbbf24">$0</div></div>
+    </div>
+
+    <div class="game-tabs mb-6">
+      <button class="game-tab active" data-admin-tab="all"><span class="game-tab-icon">★</span><span>الكل</span><span id="countAll" class="text-xs" style="color:#a896c4">0</span></button>
+      <button class="game-tab" data-admin-tab="freefire"><span class="game-tab-icon" style="background:rgba(6,182,212,0.2);color:#67e8f9">FF</span><span>فري فاير</span><span id="countFreefire" class="text-xs" style="color:#a896c4">0</span></button>
+      <button class="game-tab" data-admin-tab="pubg"><span class="game-tab-icon" style="background:rgba(250,204,21,0.2);color:#fde047">UC</span><span>ببجي</span><span id="countPubg" class="text-xs" style="color:#a896c4">0</span></button>
+      <button class="game-tab" data-admin-tab="football"><span class="game-tab-icon">FC</span><span>كرة القدم</span><span id="countFootball" class="text-xs" style="color:#a896c4">0</span></button>
+      <div style="flex:1"></div>
+      <button class="game-tab" data-admin-tab="packages"><span class="game-tab-icon">📦</span><span>الباقات</span></button>
+      <button class="game-tab" data-admin-tab="settings"><span class="game-tab-icon">⚙</span><span>الإعدادات</span></button>
+    </div>
+
+    <div id="admin-ordersPanel">
+      <div class="flex flex-wrap gap-2 mb-4" style="padding:0.75rem;background:var(--bg-glass);border:1px solid var(--border);border-radius:var(--radius)">
+        <input id="adminSearch" type="text" class="field" style="flex:1;min-width:180px" placeholder="🔍 بحث برقم الطلب أو ID أو البريد..." />
+        <select id="adminFilter" class="field" style="width:auto">
+          <option value="all">كل الحالات</option>
+          <option value="pending">⏳ بانتظار</option>
+          <option value="progress">🔄 قيد المعالجة</option>
+          <option value="done">✅ مكتمل</option>
+          <option value="cancelled">❌ ملغي</option>
+        </select>
+      </div>
+      <div id="adminOrdersList" style="display:flex;flex-direction:column;gap:0.75rem">
+        <div class="card" style="padding:2rem;text-align:center;color:#a896c4">⏳ جارٍ تحميل الطلبات...</div>
+      </div>
+    </div>
+
+    <div id="admin-packagesPanel" class="hidden">
+      <div class="flex justify-between items-center mb-4 flex-wrap gap-2">
+        <div class="flex gap-2 flex-wrap">
+          <button class="game-tab active" data-pkg-filter="all">الكل</button>
+          <button class="game-tab" data-pkg-filter="freefire">فري فاير</button>
+          <button class="game-tab" data-pkg-filter="pubg">ببجي</button>
+          <button class="game-tab" data-pkg-filter="football">كرة القدم</button>
+        </div>
+        <button id="addPkgBtn" class="btn btn-primary btn-sm">+ إضافة باقة</button>
+      </div>
+      <div id="adminPackagesList" class="grid-admin-pkg"></div>
+    </div>
+
+    <div id="admin-settingsPanel" class="hidden">
+      <div class="grid-auto">
+        <!-- إدارة المشرفين -->
+        <div class="card" style="padding:1.25rem">
+          <h3 style="font-size:1.1rem;color:#fff;margin-bottom:0.5rem;display:flex;align-items:center;gap:0.5rem"><span class="crown-deco" style="font-size:1em"></span>إدارة المشرفين</h3>
+          <p class="text-sm" style="color:#a896c4;margin-bottom:1rem">أضف عدة مشرفين عبر UID. المشرف الأساسي لا يمكن حذفه.</p>
+
+          <!-- إضافة مشرف جديد -->
+          <div id="addAdminBox" class="hidden" style="margin-bottom:1rem;padding:0.75rem;background:var(--purple-soft);border:1px solid var(--border-bright);border-radius:var(--radius)">
+            <label class="field-label">UID المشرف الجديد</label>
+            <input id="newAdminUid" type="text" class="field mb-3" dir="ltr" placeholder="ألصق UID المستخدم هنا..." />
+            <div class="flex gap-2">
+              <button id="confirmAddAdminBtn" class="btn btn-primary btn-sm flex-1">✓ إضافة</button>
+              <button id="cancelAddAdminBtn" class="btn btn-ghost btn-sm">إلغاء</button>
+            </div>
+            <p class="text-xs" style="color:#6b5a86;margin-top:0.5rem">💡 تجد UID أي مستخدم في Firebase Console → Authentication → Users</p>
+          </div>
+          <button id="addAdminBtn" class="btn btn-primary btn-sm btn-block mb-4">➕ إضافة مشرف جديد</button>
+
+          <!-- قائمة المشرفين -->
+          <label class="field-label">قائمة المشرفين الحاليين</label>
+          <div id="adminsList" style="display:flex;flex-direction:column;gap:0.5rem">
+            <div class="text-xs" style="color:#a896c4;padding:0.5rem">⏳ جارٍ التحميل...</div>
+          </div>
+
+          <div class="mt-4 text-xs" style="color:#6b5a86;border-top:1px solid var(--border);padding-top:0.75rem">
+            <div>UID حسابك: <span id="myUid" style="color:#c084fc;font-weight:700">—</span></div>
+          </div>
+        </div>
+
+        <div class="card" style="padding:1.25rem">
+          <h3 style="font-size:1.1rem;color:#fff;margin-bottom:0.5rem">📦 بذر الباقات الافتراضية</h3>
+          <p class="text-sm" style="color:#a896c4;margin-bottom:1rem">إضافة جميع الباقات الافتراضية للألعاب الثلاث دفعة واحدة.</p>
+          <button id="seedBtn" class="btn btn-primary btn-sm">⚡ إضافة 19 باقة</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================================================
+     الفوتر
+     ============================================================ -->
+<footer style="border-top:1px solid var(--border);margin-top:2rem;padding:1.5rem 0">
+  <div class="container-wide" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem">
+    <div>
+      <div class="flex items-center gap-2 mb-3">
+        <div class="brand-mark" style="width:36px;height:36px"><img src="assets/logo.jpg" alt="QUANTUM" /></div>
+        <div>
+          <div style="font-family:var(--font-display);font-size:0.85rem;color:#fff;letter-spacing:2px">QUANTUM</div>
+          <div style="font-size:0.6rem;color:#c084fc;letter-spacing:1px">GAME TOP-UP STORE</div>
+        </div>
+      </div>
+      <p style="font-size:0.8rem;color:#a896c4;line-height:1.6;margin:0">منصة شحن احترافية للألعاب — سرعة، أمان، وأسعار تنافسية.</p>
+    </div>
+    <div>
+      <h4 style="font-family:var(--font-display);font-size:0.85rem;color:#fff;margin-bottom:0.5rem">روابط سريعة</h4>
+      <div style="display:flex;flex-direction:column;gap:0.4rem">
+        <button class="nav-link" data-page="freefire" style="text-align:right;padding:0.2rem 0">شحن فري فاير</button>
+        <button class="nav-link" data-page="pubg" style="text-align:right;padding:0.2rem 0">شحن ببجي موبايل</button>
+        <button class="nav-link" data-page="football" style="text-align:right;padding:0.2rem 0">شحن FC موبايل</button>
+      </div>
+    </div>
+    <div>
+      <h4 style="font-family:var(--font-display);font-size:0.85rem;color:#fff;margin-bottom:0.5rem">لماذا QUANTUM؟</h4>
+      <ul style="list-style:none;padding:0;margin:0;font-size:0.8rem;color:#a896c4;line-height:1.8">
+        <li>✅ تسليم آمن 100%</li>
+        <li>⚡ سرعة فائقة</li>
+        <li>💬 دعم متواصل</li>
+        <li>🔒 بياناتك في أمان</li>
+      </ul>
+    </div>
+  </div>
+  <div style="border-top:1px solid var(--border);margin-top:1.5rem;padding-top:1rem;text-align:center">
+    <div style="font-family:var(--font-display);font-size:0.9rem;color:#fff;letter-spacing:2px">QUANTUM <span style="color:var(--purple-bright)">·</span> GAME TOP-UP STORE</div>
+    <div style="font-size:0.7rem;color:#6b5a86;margin-top:0.3rem">جميع الحقوق محفوظة © <span id="footerYear"></span></div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     المودالات
+     ============================================================ -->
+<div id="authModal" class="modal hidden">
+  <div class="modal-box" style="max-width:400px;padding:1.5rem">
+    <div class="flex justify-between items-center mb-4">
+      <h3 id="authTitle" style="font-size:1.2rem;color:#fff">تسجيل الدخول</h3>
+      <button class="modal-close" data-close-modal>×</button>
+    </div>
+    <div id="authError" class="hidden" style="padding:0.75rem;border-radius:10px;font-size:0.85rem;background:rgba(239,68,68,0.12);border:1px solid rgba(239,68,68,0.4);color:#fca5a5;margin-bottom:0.75rem"></div>
+    <form id="authForm" style="display:flex;flex-direction:column;gap:0.75rem">
+      <div id="nameField" class="hidden"><label class="field-label">الاسم</label><input id="authName" type="text" class="field" placeholder="اسمك" /></div>
+      <div><label class="field-label">البريد الإلكتروني</label><input id="authEmail" type="email" required class="field" placeholder="you@example.com" dir="ltr" /></div>
+      <div><label class="field-label">كلمة السر</label><input id="authPass" type="password" required class="field" placeholder="••••••••" dir="ltr" /></div>
+      <button type="submit" id="authSubmit" class="btn btn-primary btn-block btn-lg">دخول</button>
+    </form>
+    <div style="display:flex;align-items:center;gap:0.75rem;margin:1rem 0;font-size:0.75rem;color:#6b5a86"><div style="flex:1;height:1px;background:#334155"></div>أو<div style="flex:1;height:1px;background:#334155"></div></div>
+    <button id="googleBtn" class="btn btn-ghost btn-block" style="display:flex;align-items:center;justify-content:center;gap:0.5rem">
+      <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+      الدخول بحساب Google
+    </button>
+    <div style="text-align:center;margin-top:0.75rem;font-size:0.85rem;color:#a896c4">
+      <button id="authToggle" style="background:none;border:none;color:#c084fc;cursor:pointer;text-decoration:underline">ليس لدي حساب — إنشاء حساب</button>
+    </div>
+  </div>
+</div>
+
+<div id="ordersModal" class="modal hidden">
+  <div class="modal-box" style="max-width:600px;padding:1.5rem">
+    <div class="flex justify-between items-center mb-4">
+      <h3 style="font-size:1.2rem;color:#fff">📦 طلباتي</h3>
+      <button class="modal-close" data-close-modal>×</button>
+    </div>
+    <div id="ordersListBody" style="display:flex;flex-direction:column;gap:0.75rem">⏳ جارٍ التحميل...</div>
+  </div>
+</div>
+
+<div id="successModal" class="modal hidden">
+  <div class="modal-box" style="max-width:400px;padding:1.5rem;text-align:center">
+    <div style="width:72px;height:72px;margin:0 auto 1rem;border-radius:50%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#22c55e,#15803d);box-shadow:0 0 40px rgba(34,197,94,0.5)">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+    <h3 style="font-size:1.5rem;color:#fff;margin-bottom:0.5rem">تم استلام طلبك! 🎉</h3>
+    <p style="color:#cbd5e1;margin-bottom:1rem">رقم طلبك هو:</p>
+    <div class="card mb-4" style="padding:0.75rem">
+      <div id="successOrderId" style="font-family:monospace;font-size:1.5rem;color:#c084fc;font-weight:700" dir="ltr">QM-XXXXXX</div>
+    </div>
+    <p class="text-xs" style="color:#6b5a86;margin-bottom:1.25rem">احفظ هذا الرقم لمتابعة طلبك. سيتم تحديث الحالة عند التسليم.</p>
+    <div class="flex gap-2">
+      <button class="btn btn-ghost btn-block" data-close-modal>إغلاق</button>
+      <button id="successMyOrders" class="btn btn-primary btn-block">عرض طلباتي</button>
+    </div>
+  </div>
+</div>
+
+<div id="pkgModal" class="modal hidden">
+  <div class="modal-box" style="max-width:420px;padding:1.5rem">
+    <div class="flex justify-between items-center mb-4">
+      <h3 id="pkgModalTitle" style="font-size:1.2rem;color:#fff">إضافة باقة</h3>
+      <button class="modal-close" data-close-modal>×</button>
+    </div>
+    <form id="pkgForm" style="display:flex;flex-direction:column;gap:0.75rem">
+      <input type="hidden" id="pkgId" />
+      <div><label class="field-label">اللعبة *</label>
+        <select id="pkgGame" required class="field">
+          <option value="freefire">فري فاير (جوهرة)</option>
+          <option value="pubg">ببجي (UC)</option>
+          <option value="football">FC موبايل (نقطة)</option>
+        </select>
+      </div>
+      <div><label class="field-label">الكمية *</label><input id="pkgAmount" type="number" required min="1" class="field" placeholder="مثال: 110" /></div>
+      <div><label class="field-label">السعر بالدولار *</label><input id="pkgPrice" type="number" required min="0" step="0.01" class="field" placeholder="مثال: 1.00" dir="ltr" /></div>
+      <div><label class="field-label">العنوان (اختياري)</label><input id="pkgTitle" type="text" class="field" placeholder="مثال: باقة المبتدئ" /></div>
+      <div><label class="field-label">شارة (اختياري)</label>
+        <select id="pkgBadge" class="field">
+          <option value="">بدون</option>
+          <option value="popular">🔥 الأكثر طلباً</option>
+          <option value="best">💎 أفضل قيمة</option>
+          <option value="new">✨ جديد</option>
+        </select>
+      </div>
+      <div class="flex items-center gap-2">
+        <input id="pkgActive" type="checkbox" style="width:1rem;height:1rem;accent-color:var(--purple)" checked />
+        <label for="pkgActive" class="text-sm" style="color:#cbd5e1">مفعّلة (ظاهرة للمستخدمين)</label>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">💾 حفظ</button>
+    </form>
+  </div>
+</div>
+
+<script type="module">
+// ============================================================
+// QUANTUM — JavaScript (SPA في ملف واحد)
+// ============================================================
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import {
+  getAuth, GoogleAuthProvider, signInWithPopup,
+  createUserWithEmailAndPassword, signInWithEmailAndPassword,
+  signOut, onAuthStateChanged, updateProfile
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import {
+  getFirestore, collection, doc, addDoc, getDoc, getDocs,
+  setDoc, updateDoc, deleteDoc, onSnapshot, query, where,
+  serverTimestamp, limit
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+// ===== إعداد Firebase =====
+const firebaseConfig = {
+  apiKey: "AIzaSyDpK8kEjeCQVTOZUiM_UleyxUlwHM1IbLQ",
+  authDomain: "zawia-shop-game.firebaseapp.com",
+  projectId: "zawia-shop-game",
+  storageBucket: "zawia-shop-game.firebasestorage.app",
+  messagingSenderId: "663261884003",
+  appId: "1:663261884003:web:5fcdda5626a84715add256",
+  measurementId: "G-G6YPNR6G7V"
+};
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+const googleProvider = new GoogleAuthProvider();
+
+// ===== الثوابت =====
+const ORDERS_COL = "orders", PACKAGES_COL = "packages", CONFIG_COL = "config", ADMIN_DOC_ID = "admin";
+const PRIMARY_ADMIN_UID = "haOM8rF3RnXxNWXGMyW6pL1LXc03"; // المشرف الأساسي - لا يمكن حذفه
+const GAMES = {
+  freefire: { nameAr: "فري فاير", currency: "جوهرة", currencyIcon: "gem-icon", accent: "#06b6d4" },
+  pubg:     { nameAr: "ببجي موبايل", currency: "UC", currencyIcon: "uc-icon", accent: "#facc15" },
+  football: { nameAr: "إف سي موبايل", currency: "FC Point", currencyIcon: "coin-icon", accent: "#a855f7" }
+};
+const STATUS = {
+  pending:   { label: "بانتظار", cls: "pill-pending", icon: "⏳" },
+  progress:  { label: "قيد المعالجة", cls: "pill-progress", icon: "🔄" },
+  done:      { label: "مكتمل", cls: "pill-done", icon: "✅" },
+  cancelled: { label: "ملغي", cls: "pill-cancelled", icon: "❌" }
+};
+
+// ===== الحالة =====
+let currentUser = null, isAdmin = false, isPrimaryAdmin = false;
+let adminsList = []; // قائمة UID المشرفين
+let allOrders = [], allPackages = [];
+let currentPage = "home", currentAdminTab = "all", currentPkgFilter = "all";
+let unsubOrders = null, unsubPackages = null, unsubUserOrders = null;
+let selectedPackages = { freefire: null, pubg: null, football: null };
+let authMode = "login";
+
+// ===== أدوات مساعدة =====
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+
+function toast(msg, type = "info") {
+  const el = document.createElement("div");
+  el.className = `toast toast-${type}`;
+  const icon = type === "ok" ? "✓" : type === "err" ? "✕" : "ℹ";
+  el.innerHTML = `<span style="font-size:1.1em">${icon}</span><span>${esc(msg)}</span>`;
+  document.body.appendChild(el);
+  setTimeout(() => {
+    el.style.opacity = "0"; el.style.transition = "opacity 0.3s, transform 0.3s";
+    el.style.transform = "translate(-50%, 20px)";
+    setTimeout(() => el.remove(), 300);
+  }, 3000);
+}
+function fmtTime(ts) {
+  if (!ts) return "—";
+  try { return (ts.toDate ? ts.toDate() : new Date(ts)).toLocaleString("ar-EG", { dateStyle: "short", timeStyle: "short" }); }
+  catch { return String(ts); }
+}
+function fmtPrice(n) { return "$" + Number(n || 0).toFixed(2); }
+function genOrderId() {
+  const s = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+  let out = "QM-";
+  for (let i = 0; i < 6; i++) out += s[Math.floor(Math.random() * s.length)];
+  return out;
+}
+
+// ===== تحميل قائمة المشرفين =====
+async function loadAdmins() {
+  try {
+    const snap = await getDoc(doc(db, CONFIG_COL, ADMIN_DOC_ID));
+    if (snap.exists() && Array.isArray(snap.data().list)) {
+      adminsList = snap.data().list;
+    } else if (snap.exists() && snap.data().uid) {
+      // توافق مع الإصدار القديم
+      adminsList = [snap.data().uid];
+    } else {
+      adminsList = [];
+    }
+  } catch (e) { adminsList = []; }
+  // المشرف الأساسي دائماً في القائمة (ضمنياً)
+}
+
+function checkAdminStatus() {
+  if (!currentUser) { isAdmin = false; isPrimaryAdmin = false; return; }
+  isPrimaryAdmin = currentUser.uid === PRIMARY_ADMIN_UID;
+  isAdmin = isPrimaryAdmin || adminsList.includes(currentUser.uid);
+}
+
+// ===== مراقبة المصادقة =====
+onAuthStateChanged(auth, async (user) => {
+  currentUser = user;
+  if (user) { await loadAdmins(); checkAdminStatus(); }
+  renderAuthArea();
+  if (isAdmin && currentPage === "admin") startOrdersSubscription();
+});
+
+function renderAuthArea() {
+  const loggedIn = !!currentUser;
+  $("authBtn").classList.toggle("hidden", loggedIn);
+  const ua = $("userArea");
+  ua.classList.toggle("hidden", !loggedIn); ua.style.display = loggedIn ? "flex" : "none";
+  $("adminLink").classList.toggle("hidden", !isAdmin);
+  if (loggedIn) {
+    const url = currentUser.photoURL || `data:image/svg+xml,${encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%23a855f7'/><stop offset='1' stop-color='%237c3aed'/></linearGradient></defs><rect width='40' height='40' fill='url(%23g)'/><text x='20' y='27' font-size='18' fill='white' text-anchor='middle' font-family='Arial' font-weight='bold'>${(currentUser.displayName || currentUser.email || "?")[0].toUpperCase()}</text></svg>`)}`;
+    $("userAvatar").style.backgroundImage = `url("${url}")`;
+  }
+}
+
+// ===== التنقل بين الصفحات (SPA) =====
+function navigateTo(page) {
+  if (page === "admin" && !isAdmin) { toast("هذه اللوحة للمشرف فقط", "err"); return; }
+  currentPage = page;
+  document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+  $(`page-${page}`)?.classList.add("active");
+  document.querySelectorAll(".nav-link[data-page]").forEach(n => n.classList.toggle("active", n.dataset.page === page));
+  // إظهار/إخفاء البانر (فقط في الرئيسية)
+  $("bannerContainer").style.display = page === "home" ? "block" : "none";
+  window.scrollTo({ top: 0, behavior: "smooth" });
+  if (page === "admin" && isAdmin) startOrdersSubscription();
+}
+
+document.addEventListener("click", (e) => {
+  const nav = e.target.closest("[data-page]");
+  if (nav) { e.preventDefault(); navigateTo(nav.dataset.page); return; }
+  const closeBtn = e.target.closest("[data-close-modal]");
+  if (closeBtn) { closeAllModals(); return; }
+});
+
+function closeAllModals() {
+  document.querySelectorAll(".modal").forEach(m => m.classList.add("hidden"));
+  if (unsubUserOrders) { unsubUserOrders(); unsubUserOrders = null; }
+}
+
+// ===== المصادقة =====
+function openAuthModal(mode = "login") {
+  authMode = mode;
+  $("authTitle").textContent = mode === "login" ? "تسجيل الدخول" : "إنشاء حساب جديد";
+  $("authSubmit").textContent = mode === "login" ? "دخول" : "إنشاء الحساب";
+  $("nameField").classList.toggle("hidden", mode === "login");
+  $("authError").classList.add("hidden");
+  $("authModal").classList.remove("hidden");
+}
+$("authBtn").addEventListener("click", () => openAuthModal("login"));
+$("authToggle").addEventListener("click", () => openAuthModal(authMode === "login" ? "signup" : "login"));
+
+$("authForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const email = $("authEmail").value.trim(), pass = $("authPass").value, name = $("authName").value.trim();
+  $("authError").classList.add("hidden");
+  try {
+    if (authMode === "signup") {
+      const cred = await createUserWithEmailAndPassword(auth, email, pass);
+      if (name) await updateProfile(cred.user, { displayName: name });
+      await setDoc(doc(db, "users", cred.user.uid), { uid: cred.user.uid, email, name, createdAt: serverTimestamp() });
+    } else {
+      await signInWithEmailAndPassword(auth, email, pass);
+    }
+    closeAllModals();
+    toast(authMode === "login" ? "أهلاً بعودتك! 🎮" : "تم إنشاء الحساب 🎉", "ok");
+  } catch (err) {
+    $("authError").textContent = err.message.replace("Firebase: ", "");
+    $("authError").classList.remove("hidden");
+  }
+});
+$("googleBtn").addEventListener("click", async () => {
+  try {
+    const cred = await signInWithPopup(auth, googleProvider);
+    await setDoc(doc(db, "users", cred.user.uid), { uid: cred.user.uid, email: cred.user.email, name: cred.user.displayName || "", photoURL: cred.user.photoURL || "" }, { merge: true });
+    closeAllModals(); toast("أهلاً بعودتك! 🎮", "ok");
+  } catch (err) {
+    if (err.code !== "auth/popup-closed-by-user") {
+      $("authError").textContent = err.message.replace("Firebase: ", "");
+      $("authError").classList.remove("hidden");
+    }
+  }
+});
+$("logoutBtn").addEventListener("click", async () => { try { await signOut(auth); toast("تم تسجيل الخروج", "info"); } catch {} });
+
+// ===== مودال طلباتي =====
+$("myOrdersLink").addEventListener("click", () => {
+  if (!currentUser) { toast("سجّل الدخول أولاً", "info"); openAuthModal("login"); return; }
+  $("ordersModal").classList.remove("hidden"); loadUserOrders();
+});
+
+async function loadUserOrders() {
+  if (!currentUser) return;
+  const body = $("ordersListBody");
+  body.innerHTML = `<div style="text-align:center;color:#a896c4;padding:2rem 0">⏳ جارٍ التحميل...</div>`;
+  try {
+    const q = query(collection(db, ORDERS_COL), where("userId", "==", currentUser.uid));
+    if (unsubUserOrders) unsubUserOrders();
+    unsubUserOrders = onSnapshot(q, (snap) => {
+      const list = snap.docs.map(d => ({ id: d.id, ...d.data() })).sort((a, b) => (b.createdAt?.seconds || 0) - (a.createdAt?.seconds || 0));
+      if (!list.length) { body.innerHTML = `<div style="text-align:center;color:#a896c4;padding:2rem 0">لا توجد طلبات بعد.</div>`; return; }
+      body.innerHTML = list.map(o => {
+        const g = GAMES[o.game] || GAMES.freefire, st = STATUS[o.status] || STATUS.pending;
+        return `<div class="card" style="padding:1rem">
+          <div class="flex justify-between gap-3 mb-2">
+            <div>
+              <div class="flex gap-2 items-center mb-1"><span class="pill pill-purple">${g.nameAr}</span><span class="pill ${st.cls}">${st.icon} ${st.label}</span></div>
+              <div class="font-display" style="color:#fff;font-size:1.1rem"><span class="${g.currencyIcon}" style="font-size:1.1em"></span> ${esc(o.packageAmount || 0)} ${g.currency}</div>
+              <div class="text-xs" style="color:#a896c4">${fmtPrice(o.price)}</div>
+            </div>
+            <div class="text-left text-xs" style="color:#a896c4"><div>رقم الطلب</div><div style="font-family:monospace;color:#fff" dir="ltr">${esc(o.orderId)}</div><div class="mt-1">${fmtTime(o.createdAt)}</div></div>
+          </div>
+          ${o.notes ? `<div class="text-xs" style="color:#a896c4;border-top:1px solid var(--border);padding-top:0.5rem;margin-top:0.5rem">📝 ${esc(o.notes)}</div>` : ""}
+        </div>`;
+      }).join("");
+    });
+  } catch (e) { body.innerHTML = `<div style="text-align:center;color:#ef4444;padding:1rem">${esc(e.message)}</div>`; }
+}
+
+// ===== الباقات =====
+function subscribePackages(gameId, gridId) {
+  const q = query(collection(db, PACKAGES_COL), where("game", "==", gameId));
+  return onSnapshot(q, (snap) => {
+    const list = snap.docs.map(d => ({ id: d.id, ...d.data() })).sort((a, b) => (a.price || 0) - (b.price || 0));
+    renderPackagesGrid(gridId, list, gameId);
+  }, (err) => console.warn("packages snapshot:", err.message));
+}
+function renderPackagesGrid(gridId, list, gameId) {
+  const grid = $(gridId);
+  if (!grid) return;
+  const visible = list.filter(p => p.active !== false);
+  if (!visible.length) { grid.innerHTML = `<div style="grid-column:1/-1;text-align:center;color:#a896c4;padding:2rem 0">لا توجد باقات متاحة حالياً.</div>`; return; }
+  const g = GAMES[gameId];
+  grid.innerHTML = visible.map(p => `
+    <div class="pkg-card" data-pkg-id="${p.id}">
+      ${p.badge === 'popular' ? '<span class="pkg-badge pkg-badge-popular">🔥 الأكثر طلباً</span>' : ''}
+      ${p.badge === 'best' ? '<span class="pkg-badge pkg-badge-best">💎 أفضل قيمة</span>' : ''}
+      ${p.badge === 'new' ? '<span class="pkg-badge pkg-badge-new">✨ جديد</span>' : ''}
+      <div style="font-size:2.2rem;margin-bottom:0.5rem"><span class="${g.currencyIcon}" style="font-size:1em"></span></div>
+      <div class="font-display" style="font-size:1.5rem;color:#fff;margin-bottom:0.25rem">${esc(p.amount)}</div>
+      <div style="font-size:0.7rem;color:#a896c4;margin-bottom:0.75rem">${g.currency}</div>
+      ${p.title ? `<div style="font-size:0.75rem;color:#c084fc;margin-bottom:0.5rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(p.title)}</div>` : '<div style="margin-bottom:0.5rem"></div>'}
+      <div class="font-display" style="font-size:1.1rem;color:#fbbf24;margin-bottom:0.75rem">${fmtPrice(p.price)}</div>
+      <button class="btn btn-primary btn-block btn-sm" data-select-pkg="${p.id}" data-game="${gameId}">اختر الباقة</button>
+    </div>`).join("");
+}
+subscribePackages("freefire", "ff-packagesGrid");
+subscribePackages("pubg", "pubg-packagesGrid");
+subscribePackages("football", "fb-packagesGrid");
+
+// ===== اختيار الباقة =====
+document.addEventListener("click", (e) => {
+  const sel = e.target.closest("[data-select-pkg]");
+  if (!sel) return;
+  const gameId = sel.dataset.game;
+  const pkgCard = sel.closest("[data-pkg-id]");
+  if (!pkgCard) return;
+  const gridId = gameId === "freefire" ? "ff-packagesGrid" : gameId === "pubg" ? "pubg-packagesGrid" : "fb-packagesGrid";
+  document.querySelectorAll(`#${gridId} .pkg-card`).forEach(c => c.classList.remove("selected"));
+  pkgCard.classList.add("selected");
+  const amount = parseInt(pkgCard.querySelector(".font-display").textContent.trim(), 10) || 0;
+  const titleEl = pkgCard.querySelector('div[style*="c084fc"]');
+  const title = titleEl ? titleEl.textContent.trim() : "";
+  const priceText = pkgCard.querySelector('div[style*="fbbf24"]').textContent.trim();
+  const price = parseFloat(priceText.replace("$", "")) || 0;
+  selectedPackages[gameId] = { id: pkgCard.dataset.pkgId, amount, title, price };
+  showOrderForm(gameId);
+});
+
+function showOrderForm(gameId) {
+  const g = GAMES[gameId], pkg = selectedPackages[gameId];
+  const prefix = gameId === "freefire" ? "ff" : gameId === "pubg" ? "pubg" : "fb";
+  $(`${prefix}-orderPreview`).innerHTML = `
+    <div class="flex items-center gap-3">
+      <span class="${g.currencyIcon}" style="font-size:1.8rem"></span>
+      <div style="flex:1">
+        <div class="font-display" style="font-size:1.1rem;color:#fff">${esc(pkg.amount)} ${g.currency}</div>
+        ${pkg.title ? `<div class="text-xs" style="color:#c084fc">${esc(pkg.title)}</div>` : ""}
+      </div>
+      <div class="font-display" style="font-size:1.2rem;color:#fbbf24">${fmtPrice(pkg.price)}</div>
+    </div>`;
+  $(`${prefix}-orderFormSection`).classList.remove("hidden");
+  $(`${prefix}-step1`).classList.add("done");
+  $(`${prefix}-step2`).classList.add("active");
+  $(`${prefix}-orderFormSection`).scrollIntoView({ behavior: "smooth", block: "center" });
+}
+
+document.addEventListener("click", (e) => {
+  const cancel = e.target.closest("[data-cancel]");
+  if (!cancel) return;
+  cancelOrder(cancel.dataset.cancel);
+});
+function cancelOrder(prefix) {
+  const gameId = prefix === "ff" ? "freefire" : prefix === "pubg" ? "pubg" : "football";
+  const gridId = gameId === "freefire" ? "ff-packagesGrid" : gameId === "pubg" ? "pubg-packagesGrid" : "fb-packagesGrid";
+  $(`${prefix}-orderFormSection`).classList.add("hidden");
+  document.querySelectorAll(`#${gridId} .pkg-card`).forEach(c => c.classList.remove("selected"));
+  selectedPackages[gameId] = null;
+  $(`${prefix}-step1`).classList.remove("done");
+  $(`${prefix}-step2`).classList.remove("active");
+}
+
+// ===== إرسال الطلبات =====
+function setupOrderForm(prefix, gameId, extraFn) {
+  $(`${prefix}-orderForm`).addEventListener("submit", async (e) => {
+    e.preventDefault();
+    if (!currentUser) { toast("سجّل الدخول أولاً", "info"); openAuthModal("login"); return; }
+    const pkg = selectedPackages[gameId];
+    if (!pkg) { toast("اختر باقة أولاً", "err"); return; }
+    const pid = $(`${prefix}-playerId`).value.trim();
+    const notes = $(`${prefix}-notes`).value.trim();
+    if (!pid) { showOrderError(prefix, "اكتب المعرّف المطلوب"); return; }
+    if (gameId === "freefire" && !/^[A-Za-z0-9]{4,20}$/.test(pid)) { showOrderError(prefix, "Player ID يجب أن يكون أحرفاً/أرقاماً (4-20)"); return; }
+    if (gameId === "pubg" && !/^[0-9]{5,15}$/.test(pid)) { showOrderError(prefix, "Character ID يجب أن يكون رقماً (5-15)"); return; }
+    if (gameId === "football" && !/^[A-Za-z0-9_-]{4,30}$/.test(pid)) { showOrderError(prefix, "User ID غير صالح (4-30 حرف/رقم)"); return; }
+    const extra = extraFn ? extraFn() : {};
+    if (gameId === "pubg" && !extra.region) { showOrderError(prefix, "اختر المنطقة"); return; }
+    if (gameId === "football" && !extra.platform) { showOrderError(prefix, "اختر المنصة"); return; }
+    const btn = e.target.querySelector('button[type="submit"]');
+    btn.disabled = true; btn.textContent = "⏳ جارٍ الإرسال...";
+    try {
+      const orderId = genOrderId();
+      await addDoc(collection(db, ORDERS_COL), {
+        orderId, game: gameId,
+        userId: currentUser.uid, userEmail: currentUser.email || "", userName: currentUser.displayName || "",
+        playerId: pid, notes, ...extra,
+        packageId: pkg.id, packageAmount: pkg.amount, packageTitle: pkg.title, price: pkg.price,
+        status: "pending",
+        createdAt: serverTimestamp(), updatedAt: serverTimestamp()
+      });
+      $("successOrderId").textContent = orderId;
+      $("successModal").classList.remove("hidden");
+      $(`${prefix}-orderForm`).reset();
+      cancelOrder(prefix);
+    } catch (err) {
+      showOrderError(prefix, err.code === "permission-denied" ? "ليس لديك صلاحية. تأكد من نشر قواعد الأمان." : "حدث خطأ، حاول مرة أخرى.");
+    } finally {
+      btn.disabled = false;
+      btn.textContent = gameId === "freefire" ? "🔥 تأكيد الطلب" : gameId === "pubg" ? "⚡ تأكيد الطلب" : "⚽ تأكيد الطلب";
+    }
+  });
+}
+function showOrderError(prefix, msg) {
+  const el = $(`${prefix}-orderError`);
+  el.textContent = msg; el.classList.remove("hidden");
+}
+setupOrderForm("ff", "freefire");
+setupOrderForm("pubg", "pubg", () => ({ region: $("pubg-region").value, platform: $("pubg-platform").value }));
+setupOrderForm("fb", "football", () => ({ platform: $("fb-platform").value, eaAccount: $("fb-eaAccount").value.trim() }));
+
+// ===== مودال النجاح =====
+$("successMyOrders").addEventListener("click", () => { closeAllModals(); $("ordersModal").classList.remove("hidden"); loadUserOrders(); });
+
+// ===== تتبع الطلب =====
+$("quickTrackBtn").addEventListener("click", () => {
+  navigateTo("home");
+  setTimeout(() => { $("trackSection").scrollIntoView({ behavior: "smooth", block: "center" }); setTimeout(() => $("trackInput").focus(), 500); }, 300);
+});
+async function trackOrder() {
+  const code = $("trackInput").value.trim().toUpperCase();
+  if (!code) { toast("اكتب رقم الطلب", "err"); return; }
+  const result = $("trackResult");
+  result.classList.remove("hidden");
+  result.innerHTML = `<div class="text-center" style="color:#a896c4;padding:0.75rem">⏳ جارٍ البحث...</div>`;
+  try {
+    const q = query(collection(db, ORDERS_COL), where("orderId", "==", code), limit(1));
+    const snap = await getDocs(q);
+    if (snap.empty) {
+      result.innerHTML = `<div style="padding:0.75rem;border-radius:10px;font-size:0.85rem;background:rgba(239,68,68,0.12);border:1px solid rgba(239,68,68,0.4);color:#fca5a5">❌ لم يتم العثور على طلب بهذا الرقم.</div>`;
+      return;
+    }
+    const o = { id: snap.docs[0].id, ...snap.docs[0].data() };
+    const g = GAMES[o.game] || GAMES.freefire, st = STATUS[o.status] || STATUS.pending;
+    result.innerHTML = `<div class="card" style="padding:1rem">
+      <div class="flex justify-between gap-3 mb-2">
+        <div>
+          <div class="flex gap-2 items-center mb-1"><span class="pill pill-purple">${g.nameAr}</span><span class="pill ${st.cls}">${st.icon} ${st.label}</span></div>
+          <div class="font-display" style="color:#fff;font-size:1.1rem"><span class="${g.currencyIcon}" style="font-size:1.1em"></span> ${esc(o.packageAmount || 0)} ${g.currency}</div>
+          <div class="text-xs" style="color:#a896c4">${fmtPrice(o.price)}</div>
+        </div>
+        <div class="text-left text-xs" style="color:#a896c4"><div>رقم الطلب</div><div style="font-family:monospace;color:#fff" dir="ltr">${esc(o.orderId)}</div><div class="mt-1">${fmtTime(o.createdAt)}</div></div>
+      </div>
+      ${o.notes ? `<div class="text-xs" style="color:#a896c4;border-top:1px solid var(--border);padding-top:0.5rem;margin-top:0.5rem">📝 ${esc(o.notes)}</div>` : ""}
+    </div>`;
+  } catch (err) {
+    result.innerHTML = `<div style="padding:0.75rem;border-radius:10px;font-size:0.85rem;background:rgba(239,68,68,0.12);border:1px solid rgba(239,68,68,0.4);color:#fca5a5">تعذّر البحث: ${esc(err.message)}</div>`;
+  }
+}
+$("trackBtn").addEventListener("click", trackOrder);
+$("trackInput").addEventListener("keypress", (e) => { if (e.key === "Enter") trackOrder(); });
+
+// ============================================================
+// لوحة تحكم المشرف
+// ============================================================
+
+function startOrdersSubscription() {
+  if (unsubOrders) return;
+  unsubOrders = onSnapshot(collection(db, ORDERS_COL), (snap) => {
+    allOrders = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+    renderStats(); renderAdminOrders();
+  }, (err) => console.warn("orders snapshot:", err.message));
+  unsubPackages = onSnapshot(collection(db, PACKAGES_COL), (snap) => {
+    allPackages = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+    renderAdminPackages();
+  });
+}
+
+// ===== تبويبات الأدمن =====
+document.addEventListener("click", (e) => {
+  const tab = e.target.closest("[data-admin-tab]");
+  if (!tab) return;
+  document.querySelectorAll("[data-admin-tab]").forEach(t => t.classList.remove("active"));
+  tab.classList.add("active");
+  const which = tab.dataset.adminTab;
+  $("admin-ordersPanel").classList.add("hidden");
+  $("admin-packagesPanel").classList.add("hidden");
+  $("admin-settingsPanel").classList.add("hidden");
+  if (which === "packages") $("admin-packagesPanel").classList.remove("hidden");
+  else if (which === "settings") { $("admin-settingsPanel").classList.remove("hidden"); loadSettings(); }
+  else { currentAdminTab = which; $("admin-ordersPanel").classList.remove("hidden"); renderAdminOrders(); }
+});
+document.addEventListener("click", (e) => {
+  const f = e.target.closest("[data-pkg-filter]");
+  if (!f) return;
+  document.querySelectorAll("[data-pkg-filter]").forEach(t => t.classList.remove("active"));
+  f.classList.add("active");
+  currentPkgFilter = f.dataset.pkgFilter;
+  renderAdminPackages();
+});
+
+// ===== الإحصائيات =====
+function renderStats() {
+  const c = { pending: 0, progress: 0, done: 0, cancelled: 0 };
+  let revenue = 0;
+  const byGame = { freefire: 0, pubg: 0, football: 0 };
+  allOrders.forEach(o => {
+    c[o.status] = (c[o.status] || 0) + 1;
+    if (o.status === "done") revenue += Number(o.price) || 0;
+    if (byGame[o.game] !== undefined) byGame[o.game]++;
+  });
+  $("cntTotal").textContent = allOrders.length;
+  $("cntPending").textContent = c.pending;
+  $("cntProgress").textContent = c.progress;
+  $("cntDone").textContent = c.done;
+  $("cntRevenue").textContent = fmtPrice(revenue);
+  $("countAll").textContent = allOrders.length;
+  $("countFreefire").textContent = byGame.freefire;
+  $("countPubg").textContent = byGame.pubg;
+  $("countFootball").textContent = byGame.football;
+}
+
+// ===== الطلبات =====
+function renderAdminOrders() {
+  const el = $("adminOrdersList");
+  if (!isAdmin) { el.innerHTML = `<div class="card" style="padding:2rem;text-align:center;color:#a896c4">🔒 هذه اللوحة للمشرفين فقط.</div>`; return; }
+  const q = ($("adminSearch")?.value || "").trim().toLowerCase();
+  const filter = $("adminFilter")?.value || "all";
+  let list = [...allOrders];
+  if (currentAdminTab !== "all") list = list.filter(o => o.game === currentAdminTab);
+  if (filter !== "all") list = list.filter(o => o.status === filter);
+  if (q) {
+    list = list.filter(o =>
+      String(o.orderId || "").toLowerCase().includes(q) ||
+      String(o.playerId || "").toLowerCase().includes(q) ||
+      String(o.userEmail || "").toLowerCase().includes(q) ||
+      String(o.userName || "").toLowerCase().includes(q)
+    );
+  }
+  list.sort((a, b) => (b.createdAt?.seconds || 0) - (a.createdAt?.seconds || 0));
+  if (!list.length) { el.innerHTML = `<div class="card" style="padding:2rem;text-align:center;color:#a896c4">لا توجد طلبات مطابقة.</div>`; return; }
+  el.innerHTML = list.map(orderRowHTML).join("");
+}
+function orderRowHTML(o) {
+  const g = GAMES[o.game] || GAMES.freefire, st = STATUS[o.status] || STATUS.pending;
+  const statusOptions = Object.entries(STATUS).map(([k, v]) => `<option value="${k}" ${o.status === k ? "selected" : ""}>${v.icon} ${v.label}</option>`).join("");
+  const extra = [];
+  if (o.region) { const regions = { asia: "آسيا", europe: "أوروبا", america: "أمريكا", krjp: "KRJP", middle_east: "الشرق الأوسط" }; extra.push(`<span>🌍 ${regions[o.region] || o.region}</span>`); }
+  if (o.platform) { const platforms = { android: "Android", ios: "iOS" }; extra.push(`<span>📱 ${platforms[o.platform] || o.platform}</span>`); }
+  if (o.eaAccount) extra.push(`<span>🎮 EA: ${esc(o.eaAccount)}</span>`);
+  return `<div class="card" style="padding:1rem">
+    <div class="flex flex-wrap justify-between gap-3">
+      <div style="flex:1;min-width:200px">
+        <div class="flex gap-2 items-center flex-wrap mb-2">
+          <span class="pill" style="background:${g.accent}22;color:${g.accent};border:1px solid ${g.accent}66">${g.nameAr}</span>
+          <span class="font-display" style="color:#fff;font-size:1.1rem;display:flex;align-items:center;gap:0.25rem"><span class="${g.currencyIcon}" style="font-size:1em"></span>${esc(o.packageAmount || 0)} ${g.currency}</span>
+          <span class="text-xs" style="color:#a896c4">${fmtPrice(o.price)}</span>
+          <span class="pill ${st.cls}">${st.icon} ${st.label}</span>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:0.5rem;font-size:0.75rem;color:#a896c4">
+          <div>رقم الطلب: <span style="color:#fff;font-family:monospace;font-weight:700" dir="ltr">${esc(o.orderId)}</span></div>
+          <div>الـ ID: <span style="color:#fff;font-family:monospace;font-weight:700" dir="ltr">${esc(o.playerId)}</span></div>
+          <div>المستخدم: ${esc(o.userName || o.userEmail || '—')}</div>
+          <div>التاريخ: ${fmtTime(o.createdAt)}</div>
+          <div>آخر تحديث: ${fmtTime(o.updatedAt)}</div>
+        </div>
+        ${extra.length ? `<div class="flex flex-wrap gap-3 text-xs" style="color:#a896c4;margin-top:0.5rem;padding-top:0.5rem;border-top:1px solid var(--border)">${extra.join('')}</div>` : ''}
+        ${o.notes ? `<div class="text-xs" style="color:#a896c4;margin-top:0.5rem;padding-top:0.5rem;border-top:1px solid var(--border)">📝 ${esc(o.notes)}</div>` : ''}
+      </div>
+      <div class="flex-col gap-2" style="display:flex;flex-direction:column;gap:0.5rem;min-width:160px">
+        <select data-status-change="${o.id}" class="field" style="padding:0.4rem 0.5rem;font-size:0.75rem">${statusOptions}</select>
+        <button data-delete-order="${o.id}" class="btn btn-danger btn-sm">🗑 حذف</button>
+      </div>
+    </div>
+  </div>`;
+}
+document.addEventListener("change", (e) => {
+  const sel = e.target.closest("[data-status-change]");
+  if (!sel) return;
+  updateDoc(doc(db, ORDERS_COL, sel.dataset.statusChange), { status: sel.value, updatedAt: serverTimestamp() })
+    .then(() => toast("تم تحديث حالة الطلب", "ok"))
+    .catch(err => toast("فشل التحديث: " + err.message, "err"));
+});
+document.addEventListener("click", async (e) => {
+  const del = e.target.closest("[data-delete-order]");
+  if (!del) return;
+  if (!confirm("متأكد من حذف هذا الطلب؟")) return;
+  try { await deleteDoc(doc(db, ORDERS_COL, del.dataset.deleteOrder)); toast("تم حذف الطلب", "ok"); }
+  catch (err) { toast("فشل الحذف: " + err.message, "err"); }
+});
+$("adminSearch")?.addEventListener("input", renderAdminOrders);
+$("adminFilter")?.addEventListener("change", renderAdminOrders);
+
+// ===== إدارة الباقات =====
+function renderAdminPackages() {
+  const el = $("adminPackagesList");
+  let list = [...allPackages];
+  if (currentPkgFilter !== "all") list = list.filter(p => p.game === currentPkgFilter);
+  list.sort((a, b) => { if (a.game !== b.game) return a.game.localeCompare(b.game); return (a.price || 0) - (b.price || 0); });
+  if (!list.length) { el.innerHTML = `<div style="grid-column:1/-1" class="card"><div style="padding:1.5rem;text-align:center;color:#a896c4">لا توجد باقات. اضغط "+ إضافة باقة" أو ازرع الباقات الافتراضية من الإعدادات.</div></div>`; return; }
+  el.innerHTML = list.map(p => {
+    const g = GAMES[p.game] || GAMES.freefire;
+    return `<div class="card" style="padding:1rem">
+      <div class="flex justify-between items-center mb-3">
+        <span class="pill" style="background:${g.accent}22;color:${g.accent};border:1px solid ${g.accent}66">${g.nameAr}</span>
+        <span class="text-xs" style="padding:0.2rem 0.5rem;border-radius:999px;${p.active !== false ? 'background:rgba(34,197,94,0.2);color:#4ade80' : 'background:rgba(148,163,184,0.2);color:#94a3b8'}">${p.active !== false ? 'مفعّلة' : 'معطّلة'}</span>
+      </div>
+      <div class="flex items-center gap-2 mb-2">
+        <span class="${g.currencyIcon}" style="font-size:1.4rem"></span>
+        <div><div class="font-display" style="color:#fff;font-size:1.2rem">${esc(p.amount)} ${g.currency}</div><div class="text-xs" style="color:#a896c4">${p.title ? esc(p.title) : 'بدون عنوان'}</div></div>
+      </div>
+      <div style="font-weight:700;color:#fbbf24;margin-bottom:0.75rem">${fmtPrice(p.price)}</div>
+      <div class="flex gap-2">
+        <button data-edit-pkg="${p.id}" class="btn btn-ghost btn-sm" style="flex:1">✎ تعديل</button>
+        <button data-del-pkg="${p.id}" class="btn btn-danger btn-sm">🗑</button>
+      </div>
+    </div>`;
+  }).join("");
+}
+$("addPkgBtn").addEventListener("click", () => openPkgModal());
+document.addEventListener("click", (e) => {
+  const ed = e.target.closest("[data-edit-pkg]");
+  if (ed) { openPkgModal(ed.dataset.editPkg); return; }
+  const dl = e.target.closest("[data-del-pkg]");
+  if (dl) {
+    if (!confirm("متأكد من حذف هذه الباقة؟")) return;
+    deleteDoc(doc(db, PACKAGES_COL, dl.dataset.delPkg))
+      .then(() => toast("تم حذف الباقة", "ok"))
+      .catch(err => toast("فشل الحذف: " + err.message, "err"));
+  }
+});
+function openPkgModal(id) {
+  $("pkgForm").reset(); $("pkgId").value = "";
+  $("pkgModalTitle").textContent = "إضافة باقة";
+  if (id) {
+    const p = allPackages.find(x => x.id === id);
+    if (p) {
+      $("pkgId").value = p.id; $("pkgGame").value = p.game;
+      $("pkgAmount").value = p.amount; $("pkgPrice").value = p.price;
+      $("pkgTitle").value = p.title || ""; $("pkgBadge").value = p.badge || "";
+      $("pkgActive").checked = p.active !== false;
+      $("pkgModalTitle").textContent = "تعديل باقة";
+    }
+  }
+  $("pkgModal").classList.remove("hidden");
+}
+$("pkgForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const data = {
+    game: $("pkgGame").value, amount: parseInt($("pkgAmount").value, 10),
+    price: parseFloat($("pkgPrice").value), title: $("pkgTitle").value.trim(),
+    badge: $("pkgBadge").value, active: $("pkgActive").checked,
+    updatedAt: serverTimestamp()
+  };
+  if (!data.amount || data.amount < 1) { toast("الكمية غير صالحة", "err"); return; }
+  if (isNaN(data.price) || data.price < 0) { toast("السعر غير صالح", "err"); return; }
+  if (!data.game) { toast("اختر اللعبة", "err"); return; }
+  const id = $("pkgId").value;
+  try {
+    if (id) { await updateDoc(doc(db, PACKAGES_COL, id), data); toast("تم تحديث الباقة", "ok"); }
+    else { data.createdAt = serverTimestamp(); await addDoc(collection(db, PACKAGES_COL), data); toast("تمت إضافة الباقة", "ok"); }
+    $("pkgModal").classList.add("hidden");
+  } catch (err) { toast("فشل الحفظ: " + err.message, "err"); }
+});
+
+// ===== الإعدادات: إدارة المشرفين =====
+async function loadSettings() {
+  if (currentUser) $("myUid").textContent = currentUser.uid;
+  await loadAdmins();
+  renderAdminsList();
+  // إظهار زر "إضافة مشرف" فقط للمشرف الأساسي
+  $("addAdminBtn").style.display = isPrimaryAdmin ? "block" : "none";
+}
+
+function renderAdminsList() {
+  const list = $("adminsList");
+  if (!list) return;
+  const items = [];
+  // المشرف الأساسي أولاً
+  items.push({ uid: PRIMARY_ADMIN_UID, primary: true });
+  // المشرفون المضافون
+  adminsList.forEach(uid => {
+    if (uid !== PRIMARY_ADMIN_UID) items.push({ uid, primary: false });
+  });
+  if (!items.length) {
+    list.innerHTML = `<div class="text-xs" style="color:#a896c4;padding:0.5rem">لا يوجد مشرفون.</div>`;
+    return;
+  }
+  list.innerHTML = items.map(item => {
+    const isMe = currentUser && item.uid === currentUser.uid;
+    const badge = item.primary
+      ? `<span class="pill" style="background:linear-gradient(135deg,#fbbf24,#d97706);color:#1e1b2e">👑 أساسي</span>`
+      : `<span class="pill pill-purple">👤 مشرف</span>`;
+    const meBadge = isMe ? `<span class="pill pill-silver">أنت</span>` : "";
+    const deleteBtn = (item.primary || !isPrimaryAdmin)
+      ? "" // لا يمكن حذف الأساسي، والمشرفون العاديون لا يرون زر الحذف
+      : `<button data-remove-admin="${esc(item.uid)}" class="btn btn-danger btn-sm" title="حذف">🗑</button>`;
+    return `<div class="card" style="padding:0.75rem;display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap">
+      <div class="flex items-center gap-2" style="flex:1;min-width:160px">
+        ${badge}${meBadge}
+        <span class="text-xs" style="color:#a896c4;font-family:monospace" dir="ltr">${esc(item.uid)}</span>
+      </div>
+      ${deleteBtn}
+    </div>`;
+  }).join("");
+}
+
+// زر "إضافة مشرف جديد" — يظهر فقط للأساسي
+$("addAdminBtn").addEventListener("click", () => {
+  if (!isPrimaryAdmin) { toast("فقط المشرف الأساسي يمكنه إضافة مشرفين", "err"); return; }
+  $("addAdminBox").classList.remove("hidden");
+  $("newAdminUid").value = "";
+  $("newAdminUid").focus();
+});
+$("cancelAddAdminBtn").addEventListener("click", () => {
+  $("addAdminBox").classList.add("hidden");
+});
+$("confirmAddAdminBtn").addEventListener("click", async () => {
+  const newUid = $("newAdminUid").value.trim();
+  if (!newUid) { toast("اكتب UID صحيح", "err"); return; }
+  if (newUid === PRIMARY_ADMIN_UID) { toast("هذا هو المشرف الأساسي أصلاً", "err"); return; }
+  if (adminsList.includes(newUid)) { toast("هذا المشرف موجود بالفعل", "err"); return; }
+  try {
+    const newList = [...adminsList, newUid];
+    await setDoc(doc(db, CONFIG_COL, ADMIN_DOC_ID), { list: newList, updatedAt: serverTimestamp() }, { merge: true });
+    adminsList = newList;
+    renderAdminsList();
+    $("addAdminBox").classList.add("hidden");
+    toast("✓ تمت إضافة المشرف", "ok");
+  } catch (err) {
+    toast("فشل الحفظ: " + err.message + (err.code === "permission-denied" ? " (فقط المشرف الأساسي يقدر)" : ""), "err");
+  }
+});
+
+// حذف مشرف — تفويض الأحداث
+document.addEventListener("click", async (e) => {
+  const del = e.target.closest("[data-remove-admin]");
+  if (!del) return;
+  const uidToRemove = del.dataset.removeAdmin;
+  if (uidToRemove === PRIMARY_ADMIN_UID) { toast("لا يمكن حذف المشرف الأساسي", "err"); return; }
+  if (!confirm("متأكد من حذف هذا المشرف؟ سيفقد صلاحياته فوراً.")) return;
+  try {
+    const newList = adminsList.filter(u => u !== uidToRemove);
+    await setDoc(doc(db, CONFIG_COL, ADMIN_DOC_ID), { list: newList, updatedAt: serverTimestamp() }, { merge: true });
+    adminsList = newList;
+    renderAdminsList();
+    toast("✓ تم حذف المشرف", "ok");
+  } catch (err) {
+    toast("فشل الحذف: " + err.message, "err");
+  }
+});
+
+$("seedBtn").addEventListener("click", async () => {
+  if (!confirm("سيتم إضافة 19 باقة افتراضية. متأكد؟")) return;
+  await seedAllPackages();
+});
+async function seedAllPackages() {
+  if (!isAdmin) { toast("للمشرف فقط", "err"); return; }
+  const defaults = [
+    { game: "freefire", amount: 100,   price: 1.00,   title: "بداية اللعب",    badge: "" },
+    { game: "freefire", amount: 310,   price: 3.00,   title: "الباقة الصغيرة", badge: "" },
+    { game: "freefire", amount: 520,   price: 5.00,   title: "الباقة المتوسطة",badge: "popular" },
+    { game: "freefire", amount: 1060,  price: 10.00,  title: "الباقة الكبيرة", badge: "" },
+    { game: "freefire", amount: 2180,  price: 20.00,  title: "باقة المحترفين", badge: "best" },
+    { game: "freefire", amount: 5600,  price: 50.00,  title: "باقة الأساطير",  badge: "" },
+    { game: "freefire", amount: 11500, price: 100.00, title: "باقة الكنز",     badge: "" },
+    { game: "pubg", amount: 60,    price: 1.00,   title: "بداية اللعب",    badge: "" },
+    { game: "pubg", amount: 325,   price: 5.00,   title: "الباقة الصغيرة", badge: "" },
+    { game: "pubg", amount: 660,   price: 10.00,  title: "الباقة المتوسطة",badge: "popular" },
+    { game: "pubg", amount: 1800,  price: 25.00,  title: "الباقة الكبيرة", badge: "" },
+    { game: "pubg", amount: 3850,  price: 50.00,  title: "باقة المحترفين", badge: "best" },
+    { game: "pubg", amount: 8100,  price: 100.00, title: "باقة الأساطير",  badge: "" },
+    { game: "football", amount: 100,   price: 1.00,   title: "بداية اللعب",    badge: "" },
+    { game: "football", amount: 500,   price: 4.99,   title: "الباقة الصغيرة", badge: "" },
+    { game: "football", amount: 1050,  price: 9.99,   title: "الباقة المتوسطة",badge: "popular" },
+    { game: "football", amount: 2200,  price: 19.99,  title: "الباقة الكبيرة", badge: "" },
+    { game: "football", amount: 4750,  price: 39.99,  title: "باقة المحترفين", badge: "best" },
+    { game: "football", amount: 10500, price: 79.99,  title: "باقة الأساطير",  badge: "" }
+  ];
+  let added = 0;
+  for (const p of defaults) {
+    try { await addDoc(collection(db, PACKAGES_COL), { ...p, active: true, createdAt: serverTimestamp() }); added++; }
+    catch (e) { console.warn("Failed:", e.message); }
+  }
+  toast(`✓ تم إضافة ${added} باقة`, "ok");
+}
+
+// ===== التهيئة =====
+$("footerYear").textContent = new Date().getFullYear();
+document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeAllModals(); });
+document.querySelectorAll(".modal").forEach(m => m.addEventListener("click", (e) => { if (e.target === m) closeAllModals(); }));
+window.addEventListener("online", () => toast("تم استعادة الاتصال ✓", "ok"));
+window.addEventListener("offline", () => toast("انقطع الاتصال - تحقق من شبكتك", "err"));
+console.log("%c[QUANTUM]", "color:#c084fc;font-weight:bold", "loaded ✓");
+</script>
+</body>
+</html>
