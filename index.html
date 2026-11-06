@@ -380,7 +380,95 @@ select.field { cursor: pointer; }
   .btn-lg { padding: 0.8rem 1.5rem; font-size: 0.95rem; }
   .grid-packages { grid-template-columns: 1fr; }
 }
+
+/* ===== 25. الأيقونات الاحترافية (Iconify) ===== */
+iconify-icon {
+  display: inline-flex;
+  vertical-align: -0.125em;
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+.icon-lg { font-size: 1.8rem; }
+.icon-md { font-size: 1.3rem; }
+.icon-sm { font-size: 1rem; }
+.icon-xl { font-size: 2.5rem; }
+
+/* أيقونة دائرية متوهجة */
+.icon-circle {
+  width: 56px; height: 56px; border-radius: 14px;
+  display: inline-flex; align-items: center; justify-content: center;
+  flex-shrink: 0; position: relative;
+  border: 1px solid var(--border-bright);
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.15), rgba(124, 58, 237, 0.05));
+  box-shadow: 0 4px 20px -4px var(--purple-glow), inset 0 0 10px rgba(168, 85, 247, 0.1);
+}
+.icon-circle iconify-icon { font-size: 1.6rem; }
+.icon-circle-cyan {
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.2), rgba(8, 145, 178, 0.08));
+  border-color: rgba(6, 182, 212, 0.4);
+  box-shadow: 0 4px 20px -4px rgba(6, 182, 212, 0.4), inset 0 0 10px rgba(6, 182, 212, 0.1);
+}
+.icon-circle-cyan iconify-icon { color: #67e8f9; }
+.icon-circle-gold {
+  background: linear-gradient(135deg, rgba(250, 204, 21, 0.2), rgba(202, 138, 4, 0.08));
+  border-color: rgba(250, 204, 21, 0.4);
+  box-shadow: 0 4px 20px -4px rgba(250, 204, 21, 0.4), inset 0 0 10px rgba(250, 204, 21, 0.1);
+}
+.icon-circle-gold iconify-icon { color: #fde047; }
+.icon-circle-purple iconify-icon { color: var(--purple-bright); }
+.icon-circle-green {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(22, 101, 52, 0.08));
+  border-color: rgba(34, 197, 94, 0.4);
+}
+.icon-circle-green iconify-icon { color: #4ade80; }
+
+/* أيقونة في زر */
+.btn iconify-icon { font-size: 1.1em; }
+
+/* أيقونة نشطة في التنقل */
+.nav-link iconify-icon { font-size: 1.1em; }
+
+/* توهج الأيقونة */
+@keyframes iconPulse {
+  0%, 100% { filter: drop-shadow(0 0 4px currentColor); }
+  50% { filter: drop-shadow(0 0 12px currentColor); }
+}
+.icon-pulse { animation: iconPulse 2s ease-in-out infinite; }
+
+/* بطاقة الأيقونة الكبيرة */
+.icon-feature {
+  width: 64px; height: 64px; border-radius: 16px;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: linear-gradient(135deg, var(--purple-soft), rgba(168, 85, 247, 0.05));
+  border: 1px solid var(--border-bright);
+  box-shadow: 0 4px 20px -4px var(--purple-glow), inset 0 0 10px rgba(168, 85, 247, 0.1);
+  margin-bottom: 0.5rem;
+}
+.icon-feature iconify-icon { font-size: 2rem; color: var(--purple-bright); }
+
+/* أيقونة الخطوة */
+.step-icon {
+  width: 56px; height: 56px; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: linear-gradient(135deg, var(--purple-deep), var(--purple-bright));
+  color: #fff;
+  box-shadow: 0 0 20px var(--purple-glow);
+}
+.step-icon iconify-icon { font-size: 1.5rem; }
+
+/* أيقونة قابلة للنقر */
+.icon-btn {
+  width: 36px; height: 36px; border-radius: 10px;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: rgba(168, 85, 247, 0.08);
+  border: 1px solid var(--border);
+  color: var(--text-dim); cursor: pointer; transition: all 0.2s;
+}
+.icon-btn:hover { background: var(--purple-soft); color: var(--purple-bright); border-color: var(--border-bright); }
+.icon-btn iconify-icon { font-size: 1.1rem; }
+.icon-btn-danger:hover { background: rgba(239, 68, 68, 0.15); color: var(--red); border-color: rgba(239, 68, 68, 0.4); }
 </style>
+<script src="https://code.iconify.design/iconify-icon/2.3.0/iconify-icon.min.js"></script>
 </head>
 <body>
 <div class="bg-particles"></div>
@@ -398,16 +486,16 @@ select.field { cursor: pointer; }
       </div>
     </div>
     <div class="nav-links">
-      <button class="nav-link active" data-page="home">الرئيسية</button>
-      <button class="nav-link hide-mobile" data-page="freefire">فري فاير</button>
-      <button class="nav-link hide-mobile" data-page="pubg">ببجي</button>
-      <button class="nav-link hide-mobile" data-page="football">كرة القدم</button>
-      <button class="nav-link" id="myOrdersLink">طلباتي</button>
-      <button class="nav-link hidden" id="adminLink" data-page="admin">لوحة التحكم</button>
-      <button class="btn btn-primary btn-sm" id="authBtn">دخول</button>
+      <button class="nav-link active" data-page="home"><iconify-icon icon="ph:house-fill"></iconify-icon> الرئيسية</button>
+      <button class="nav-link hide-mobile" data-page="freefire"><iconify-icon icon="ph:fire-fill" style="color:#f97316"></iconify-icon> فري فاير</button>
+      <button class="nav-link hide-mobile" data-page="pubg"><iconify-icon icon="ph:target-fill" style="color:#facc15"></iconify-icon> ببجي</button>
+      <button class="nav-link hide-mobile" data-page="football"><iconify-icon icon="ph:soccer-ball-fill" style="color:#a855f7"></iconify-icon> كرة القدم</button>
+      <button class="nav-link" id="myOrdersLink"><iconify-icon icon="ph:package-fill"></iconify-icon> طلباتي</button>
+      <button class="nav-link hidden" id="adminLink" data-page="admin"><iconify-icon icon="ph:gear-six-fill"></iconify-icon> لوحة التحكم</button>
+      <button class="btn btn-primary btn-sm" id="authBtn"><iconify-icon icon="ph:sign-in-fill"></iconify-icon> دخول</button>
       <div id="userArea" class="hidden" style="display:none;align-items:center;gap:0.5rem">
         <div id="userAvatar" style="width:36px;height:36px;border-radius:50%;border:2px solid var(--purple);background-size:cover;background-position:center"></div>
-        <button class="btn btn-ghost btn-sm" id="logoutBtn">خروج</button>
+        <button class="btn btn-ghost btn-sm" id="logoutBtn"><iconify-icon icon="ph:sign-out-fill"></iconify-icon> خروج</button>
       </div>
     </div>
   </div>
@@ -449,16 +537,16 @@ select.field { cursor: pointer; }
         <br>أسعار تنافسية، تسليم سريع، وحماية كاملة لبياناتك.
       </p>
       <div class="flex flex-wrap gap-3 justify-center">
-        <button class="btn btn-primary btn-lg pulse-glow" data-page="freefire">🔥 ابدأ الشحن</button>
-        <button class="btn btn-ghost btn-lg" id="quickTrackBtn">🔍 تتبع طلب</button>
+        <button class="btn btn-primary btn-lg pulse-glow" data-page="freefire"><iconify-icon icon="ph:rocket-launch-fill"></iconify-icon> ابدأ الشحن</button>
+        <button class="btn btn-ghost btn-lg" id="quickTrackBtn"><iconify-icon icon="ph:magnifying-glass-fill"></iconify-icon> تتبع طلب</button>
       </div>
     </div>
 
     <div class="grid-4 mb-8">
-      <div class="stat-card text-center"><div style="font-size:1.8rem">🎮</div><div class="stat-num">3</div><div class="text-xs" style="color:#a896c4;margin-top:4px">ألعاب مدعومة</div></div>
-      <div class="stat-card text-center"><div style="font-size:1.8rem">⚡</div><div class="stat-num">24/7</div><div class="text-xs" style="color:#a896c4;margin-top:4px">دعم متواصل</div></div>
-      <div class="stat-card text-center"><div style="font-size:1.8rem">🔒</div><div class="stat-num">100%</div><div class="text-xs" style="color:#a896c4;margin-top:4px">تسليم آمن</div></div>
-      <div class="stat-card text-center"><div style="font-size:1.8rem">💎</div><div class="stat-num">∞</div><div class="text-xs" style="color:#a896c4;margin-top:4px">باقات متاحة</div></div>
+      <div class="stat-card text-center"><div class="icon-circle icon-circle-purple" style="margin:0 auto 0.5rem;width:48px;height:48px"><iconify-icon icon="ph:game-controller-fill"></iconify-icon></div><div class="stat-num">3</div><div class="text-xs" style="color:#a896c4;margin-top:4px">ألعاب مدعومة</div></div>
+      <div class="stat-card text-center"><div class="icon-circle icon-circle-gold" style="margin:0 auto 0.5rem;width:48px;height:48px"><iconify-icon icon="ph:lightning-fill"></iconify-icon></div><div class="stat-num">24/7</div><div class="text-xs" style="color:#a896c4;margin-top:4px">دعم متواصل</div></div>
+      <div class="stat-card text-center"><div class="icon-circle icon-circle-green" style="margin:0 auto 0.5rem;width:48px;height:48px"><iconify-icon icon="ph:shield-check-fill"></iconify-icon></div><div class="stat-num">100%</div><div class="text-xs" style="color:#a896c4;margin-top:4px">تسليم آمن</div></div>
+      <div class="stat-card text-center"><div class="icon-circle icon-circle-cyan" style="margin:0 auto 0.5rem;width:48px;height:48px"><iconify-icon icon="ph:database-fill"></iconify-icon></div><div class="stat-num">∞</div><div class="text-xs" style="color:#a896c4;margin-top:4px">باقات متاحة</div></div>
     </div>
 
     <div class="text-center mb-6">
@@ -470,27 +558,27 @@ select.field { cursor: pointer; }
     <div class="grid-3 mb-8">
       <div class="card" style="padding:1.25rem;cursor:pointer" data-page="freefire">
         <div class="flex items-center gap-3 mb-3">
-          <div style="width:56px;height:56px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,rgba(6,182,212,0.2),rgba(8,145,178,0.1));border:1px solid rgba(6,182,212,0.4)"><span class="gem-icon" style="font-size:1.8rem"></span></div>
+          <div class="icon-circle icon-circle-cyan"><iconify-icon icon="game-icons:diamond" style="color:#67e8f9"></iconify-icon></div>
           <div><h3 style="font-size:1.1rem;color:#fff">Free Fire</h3><div style="font-size:0.75rem;color:#67e8f9">جواهر فري فاير</div></div>
         </div>
         <p class="text-sm" style="color:#a896c4;margin:0 0 0.75rem">شحن جواهر فري فاير فوري بأفضل الأسعار — من 100 جوهرة.</p>
-        <button class="btn btn-primary btn-block btn-sm">شحن الآن ←</button>
+        <button class="btn btn-primary btn-block btn-sm"><iconify-icon icon="ph:lightning-fill"></iconify-icon> شحن الآن</button>
       </div>
       <div class="card" style="padding:1.25rem;cursor:pointer" data-page="pubg">
         <div class="flex items-center gap-3 mb-3">
-          <div style="width:56px;height:56px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,rgba(250,204,21,0.2),rgba(202,138,4,0.1));border:1px solid rgba(250,204,21,0.4)"><span class="uc-icon" style="font-size:1.8rem"></span></div>
+          <div class="icon-circle icon-circle-gold"><iconify-icon icon="game-icons:cash" style="color:#fde047"></iconify-icon></div>
           <div><h3 style="font-size:1.1rem;color:#fff">PUBG Mobile</h3><div style="font-size:0.75rem;color:#fde047">UC ببجي موبايل</div></div>
         </div>
         <p class="text-sm" style="color:#a896c4;margin:0 0 0.75rem">شحن UC ببجي موبايل بأسرع تسليم — من 60 UC.</p>
-        <button class="btn btn-primary btn-block btn-sm">شحن الآن ←</button>
+        <button class="btn btn-primary btn-block btn-sm"><iconify-icon icon="ph:lightning-fill"></iconify-icon> شحن الآن</button>
       </div>
       <div class="card" style="padding:1.25rem;cursor:pointer" data-page="football">
         <div class="flex items-center gap-3 mb-3">
-          <div style="width:56px;height:56px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,rgba(168,85,247,0.2),rgba(124,58,237,0.1));border:1px solid var(--border-bright)"><span class="coin-icon" style="font-size:1.8rem"></span></div>
+          <div class="icon-circle icon-circle-purple"><iconify-icon icon="ph:soccer-ball-fill"></iconify-icon></div>
           <div><h3 style="font-size:1.1rem;color:#fff">FC Mobile</h3><div style="font-size:0.75rem;color:#c084fc">نقاط FC موبايل</div></div>
         </div>
         <p class="text-sm" style="color:#a896c4;margin:0 0 0.75rem">شحن نقاط FC موبايل لكرة القدم — ابنِ فريقك المثالي.</p>
-        <button class="btn btn-primary btn-block btn-sm">شحن الآن ←</button>
+        <button class="btn btn-primary btn-block btn-sm"><iconify-icon icon="ph:lightning-fill"></iconify-icon> شحن الآن</button>
       </div>
     </div>
 
@@ -499,18 +587,18 @@ select.field { cursor: pointer; }
       <h2 class="text-gradient" style="font-size:1.8rem;letter-spacing:3px">تجربة شحن احترافية</h2>
     </div>
     <div class="grid-auto mb-8">
-      <div class="card" style="padding:1.25rem"><div style="font-size:2rem;margin-bottom:0.5rem">⚡</div><h3 style="font-size:1rem;color:#fff;margin-bottom:0.4rem">سرعة فائقة</h3><p class="text-sm" style="color:#a896c4;margin:0">طلباتك تُعالج بأسرع وقت مع متابعة حية لحالة الطلب.</p></div>
-      <div class="card" style="padding:1.25rem"><div style="font-size:2rem;margin-bottom:0.5rem">🔒</div><h3 style="font-size:1rem;color:#fff;margin-bottom:0.4rem">حماية كاملة</h3><p class="text-sm" style="color:#a896c4;margin:0">لا نطلب كلمة سر حسابك — نحتاج فقط معرّف اللاعب.</p></div>
-      <div class="card" style="padding:1.25rem"><div style="font-size:2rem;margin-bottom:0.5rem">💎</div><h3 style="font-size:1rem;color:#fff;margin-bottom:0.4rem">أسعار تنافسية</h3><p class="text-sm" style="color:#a896c4;margin:0">أفضل الأسعار بالدولار على جميع الباقات مع عروض دورية.</p></div>
-      <div class="card" style="padding:1.25rem"><div style="font-size:2rem;margin-bottom:0.5rem">💬</div><h3 style="font-size:1rem;color:#fff;margin-bottom:0.4rem">دعم متواصل</h3><p class="text-sm" style="color:#a896c4;margin:0">فريق دعم جاهز لمساعدتك في أي وقت وعلى مدار الساعة.</p></div>
+      <div class="card" style="padding:1.25rem"><div class="icon-feature"><iconify-icon icon="ph:lightning-fill"></iconify-icon></div><h3 style="font-size:1rem;color:#fff;margin-bottom:0.4rem">سرعة فائقة</h3><p class="text-sm" style="color:#a896c4;margin:0">طلباتك تُعالج بأسرع وقت مع متابعة حية لحالة الطلب.</p></div>
+      <div class="card" style="padding:1.25rem"><div class="icon-feature"><iconify-icon icon="ph:shield-check-fill"></iconify-icon></div><h3 style="font-size:1rem;color:#fff;margin-bottom:0.4rem">حماية كاملة</h3><p class="text-sm" style="color:#a896c4;margin:0">لا نطلب كلمة سر حسابك — نحتاج فقط معرّف اللاعب.</p></div>
+      <div class="card" style="padding:1.25rem"><div class="icon-feature"><iconify-icon icon="ph:currency-circle-dollar-fill"></iconify-icon></div><h3 style="font-size:1rem;color:#fff;margin-bottom:0.4rem">أسعار تنافسية</h3><p class="text-sm" style="color:#a896c4;margin:0">أفضل الأسعار بالدولار على جميع الباقات مع عروض دورية.</p></div>
+      <div class="card" style="padding:1.25rem"><div class="icon-feature"><iconify-icon icon="ph:headset-fill"></iconify-icon></div><h3 style="font-size:1rem;color:#fff;margin-bottom:0.4rem">دعم متواصل</h3><p class="text-sm" style="color:#a896c4;margin:0">فريق دعم جاهز لمساعدتك في أي وقت وعلى مدار الساعة.</p></div>
     </div>
 
     <div class="card-glass" id="trackSection" style="padding:1.5rem">
-      <h2 style="font-size:1.2rem;color:#fff;margin-bottom:0.3rem">🔍 تتبع طلبك</h2>
+      <h2 style="font-size:1.2rem;color:#fff;margin-bottom:0.3rem"><iconify-icon icon="ph:magnifying-glass-fill" style="color:var(--purple-bright);vertical-align:-0.15em"></iconify-icon> تتبع طلبك</h2>
       <p class="text-sm" style="color:#a896c4;margin:0 0 1rem">أدخل رقم الطلب الذي حصلت عليه عند الشراء لمعرفة حالته.</p>
       <div class="flex flex-wrap gap-3">
         <input id="trackInput" type="text" class="field" style="flex:1;min-width:200px" placeholder="مثال: QM-1A2B3C" dir="ltr" />
-        <button id="trackBtn" class="btn btn-primary">تتبع الطلب</button>
+        <button id="trackBtn" class="btn btn-primary"><iconify-icon icon="ph:magnifying-glass-fill"></iconify-icon> تتبع الطلب</button>
       </div>
       <div id="trackResult" class="mt-4 hidden"></div>
     </div>
@@ -521,13 +609,13 @@ select.field { cursor: pointer; }
     <div class="game-hero">
       <div class="game-hero-grid"></div>
       <div style="position:relative;z-index:1;text-align:center;max-width:640px;margin:0 auto">
-        <div class="pill" style="background:rgba(6,182,212,0.15);border-color:rgba(6,182,212,0.4);color:#67e8f9;margin-bottom:0.75rem"><span class="gem-icon" style="font-size:1em"></span><span>FREE FIRE DIAMONDS</span></div>
+        <div class="pill" style="background:rgba(6,182,212,0.15);border-color:rgba(6,182,212,0.4);color:#67e8f9;margin-bottom:0.75rem"><iconify-icon icon="game-icons:diamond" style="font-size:1.1em"></iconify-icon><span>FREE FIRE DIAMONDS</span></div>
         <h1 class="text-gradient" style="font-size:2rem;letter-spacing:3px;margin-bottom:0.5rem">شحن جواهر فري فاير</h1>
         <p style="color:#cbd5e1;margin-bottom:1rem">اختر باقتك، اكتب معرّف اللاعب، واطلب — جواهراتك ستصل بسرعة البرق.</p>
         <div class="flex flex-wrap gap-2 justify-center">
-          <span class="pill" style="background:rgba(6,182,212,0.15);color:#67e8f9;border:1px solid rgba(6,182,212,0.4)">⚡ تسليم سريع</span>
-          <span class="pill pill-purple">🔒 آمن 100%</span>
-          <span class="pill pill-silver">💎 أفضل الأسعار</span>
+          <span class="pill" style="background:rgba(6,182,212,0.15);color:#67e8f9;border:1px solid rgba(6,182,212,0.4)"><iconify-icon icon="ph:lightning-fill"></iconify-icon> تسليم سريع</span>
+          <span class="pill pill-purple"><iconify-icon icon="ph:shield-check-fill"></iconify-icon> آمن 100%</span>
+          <span class="pill pill-silver"><iconify-icon icon="ph:currency-circle-dollar-fill"></iconify-icon> أفضل الأسعار</span>
         </div>
       </div>
     </div>
@@ -539,37 +627,37 @@ select.field { cursor: pointer; }
     </div>
 
     <div class="flex justify-between items-center mb-4 flex-wrap gap-2">
-      <h2 style="font-size:1.4rem;color:#fff">💎 اختر باقتك</h2>
+      <h2 style="font-size:1.4rem;color:#fff"><iconify-icon icon="game-icons:diamond" style="color:#67e8f9;vertical-align:-0.15em"></iconify-icon> اختر باقتك</h2>
       <span class="text-xs" style="color:#a896c4">الأسعار بالدولار ($)</span>
     </div>
     <div id="ff-packagesGrid" class="grid-packages mb-6">
-      <div style="grid-column:1/-1;text-align:center;color:#a896c4;padding:2rem 0">⏳ جارٍ تحميل الباقات...</div>
+      <div style="grid-column:1/-1;text-align:center;color:#a896c4;padding:2rem 0"><iconify-icon icon="ph:spinner-gap" class="icon-pulse" style="font-size:1.5rem;vertical-align:middle"></iconify-icon> جارٍ تحميل الباقات...</div>
     </div>
 
     <div id="ff-orderFormSection" class="card-glass hidden mb-6" style="padding:1.5rem">
       <div class="flex justify-between items-center mb-4">
-        <h2 style="font-size:1.2rem;color:#fff">📝 تفاصيل الطلب</h2>
-        <button class="btn btn-ghost btn-sm" data-cancel="ff">إلغاء</button>
+        <h2 style="font-size:1.2rem;color:#fff"><iconify-icon icon="ph:clipboard-text-fill" style="color:var(--purple-bright);vertical-align:-0.15em"></iconify-icon> تفاصيل الطلب</h2>
+        <button class="btn btn-ghost btn-sm" data-cancel="ff"><iconify-icon icon="ph:x-fill"></iconify-icon> إلغاء</button>
       </div>
       <div id="ff-orderPreview" class="card mb-4" style="padding:0.75rem"></div>
       <form id="ff-orderForm" style="display:flex;flex-direction:column;gap:1rem">
         <div>
-          <label class="field-label">Player ID (معرّف اللاعب في فري فاير) *</label>
+          <label class="field-label"><iconify-icon icon="ph:identification-card-fill"></iconify-icon> Player ID (معرّف اللاعب في فري فاير) *</label>
           <input id="ff-playerId" type="text" required class="field" placeholder="مثال: 123456789" dir="ltr" />
           <div class="text-xs" style="color:#6b5a86;margin-top:0.25rem">تجده في صفحة الملف الشخصي داخل اللعبة.</div>
         </div>
         <div>
-          <label class="field-label">ملاحظات (اختياري)</label>
+          <label class="field-label"><iconify-icon icon="ph:note-pencil-fill"></iconify-icon> ملاحظات (اختياري)</label>
           <textarea id="ff-notes" class="field" rows="2" placeholder="أي تفاصيل إضافية..."></textarea>
         </div>
         <div id="ff-orderError" class="hidden" style="padding:0.75rem;border-radius:10px;font-size:0.85rem;background:rgba(239,68,68,0.12);border:1px solid rgba(239,68,68,0.4);color:#fca5a5"></div>
-        <button type="submit" class="btn btn-primary btn-block btn-lg">🔥 تأكيد الطلب</button>
+        <button type="submit" class="btn btn-primary btn-block btn-lg"><iconify-icon icon="ph:fire-fill"></iconify-icon> تأكيد الطلب</button>
       </form>
     </div>
 
     <div class="grid-auto">
       <div class="card" style="padding:1.25rem">
-        <h3 style="font-size:1rem;color:#fff;margin-bottom:0.75rem;display:flex;align-items:center;gap:0.5rem"><span class="gem-icon" style="font-size:1.1em"></span>كيف تحصل على Player ID؟</h3>
+        <h3 style="font-size:1rem;color:#fff;margin-bottom:0.75rem;display:flex;align-items:center;gap:0.5rem"><iconify-icon icon="game-icons:diamond" style="color:#67e8f9"></iconify-icon> كيف تحصل على Player ID؟</h3>
         <ol style="padding-right:1.25rem;color:#cbd5e1;font-size:0.85rem;line-height:1.8">
           <li>افتح لعبة Free Fire على هاتفك</li>
           <li>اضغط على صورة ملفك الشخصي</li>
@@ -578,12 +666,12 @@ select.field { cursor: pointer; }
         </ol>
       </div>
       <div class="card" style="padding:1.25rem">
-        <h3 style="font-size:1rem;color:#fff;margin-bottom:0.75rem">ℹ️ معلومات مهمة</h3>
+        <h3 style="font-size:1rem;color:#fff;margin-bottom:0.75rem"><iconify-icon icon="ph:info-fill" style="color:var(--purple-bright);vertical-align:-0.15em"></iconify-icon> معلومات مهمة</h3>
         <ul style="padding:0;list-style:none;color:#cbd5e1;font-size:0.85rem;line-height:1.8">
-          <li>✓ التسليم يدوي لضمان وصول كل جوهرة</li>
-          <li>✓ لا نطلب كلمة سر حسابك أبداً</li>
-          <li>✓ تابع طلبك برقمه من أي صفحة</li>
-          <li style="color:#fbbf24">⚠ تأكد من Player ID قبل التأكيد</li>
+          <li><iconify-icon icon="ph:check-circle-fill" style="color:#4ade80"></iconify-icon> التسليم يدوي لضمان وصول كل جوهرة</li>
+          <li><iconify-icon icon="ph:check-circle-fill" style="color:#4ade80"></iconify-icon> لا نطلب كلمة سر حسابك أبداً</li>
+          <li><iconify-icon icon="ph:check-circle-fill" style="color:#4ade80"></iconify-icon> تابع طلبك برقمه من أي صفحة</li>
+          <li style="color:#fbbf24"><iconify-icon icon="ph:warning-fill"></iconify-icon> تأكد من Player ID قبل التأكيد</li>
         </ul>
       </div>
     </div>
@@ -594,12 +682,12 @@ select.field { cursor: pointer; }
     <div class="game-hero">
       <div class="game-hero-grid" style="background-image:linear-gradient(rgba(250,204,21,0.25) 1px,transparent 1px),linear-gradient(90deg,rgba(250,204,21,0.25) 1px,transparent 1px)"></div>
       <div style="position:relative;z-index:1;text-align:center;max-width:640px;margin:0 auto">
-        <div class="pill" style="background:rgba(250,204,21,0.15);border-color:rgba(250,204,21,0.4);color:#fde047;margin-bottom:0.75rem"><span class="uc-icon" style="font-size:1em"></span><span>PUBG MOBILE UC</span></div>
+        <div class="pill" style="background:rgba(250,204,21,0.15);border-color:rgba(250,204,21,0.4);color:#fde047;margin-bottom:0.75rem"><iconify-icon icon="game-icons:cash" style="font-size:1.1em"></iconify-icon><span>PUBG MOBILE UC</span></div>
         <h1 class="text-gradient" style="font-size:2rem;letter-spacing:3px;margin-bottom:0.5rem">شحن UC ببجي موبايل</h1>
         <p style="color:#cbd5e1;margin-bottom:1rem">اختر باقة الـ UC المناسبة، أدخل معرّف حسابك ومنطقتك، وأرسل الطلب.</p>
         <div class="flex flex-wrap gap-2 justify-center">
-          <span class="pill" style="background:rgba(250,204,21,0.15);color:#fde047;border:1px solid rgba(250,204,21,0.4)">⚡ تسليم سريع</span>
-          <span class="pill pill-purple">🔒 آمن 100%</span>
+          <span class="pill" style="background:rgba(250,204,21,0.15);color:#fde047;border:1px solid rgba(250,204,21,0.4)"><iconify-icon icon="ph:lightning-fill"></iconify-icon> تسليم سريع</span>
+          <span class="pill pill-purple"><iconify-icon icon="ph:shield-check-fill"></iconify-icon> آمن 100%</span>
         </div>
       </div>
     </div>
@@ -611,28 +699,28 @@ select.field { cursor: pointer; }
     </div>
 
     <div class="flex justify-between items-center mb-4 flex-wrap gap-2">
-      <h2 style="font-size:1.4rem;color:#fff">⚡ اختر باقة UC</h2>
+      <h2 style="font-size:1.4rem;color:#fff"><iconify-icon icon="ph:lightning-fill" style="color:#fde047;vertical-align:-0.15em"></iconify-icon> اختر باقة UC</h2>
       <span class="text-xs" style="color:#a896c4">الأسعار بالدولار ($)</span>
     </div>
     <div id="pubg-packagesGrid" class="grid-packages mb-6">
-      <div style="grid-column:1/-1;text-align:center;color:#a896c4;padding:2rem 0">⏳ جارٍ تحميل الباقات...</div>
+      <div style="grid-column:1/-1;text-align:center;color:#a896c4;padding:2rem 0"><iconify-icon icon="ph:spinner-gap" class="icon-pulse" style="font-size:1.5rem;vertical-align:middle"></iconify-icon> جارٍ تحميل الباقات...</div>
     </div>
 
     <div id="pubg-orderFormSection" class="card-glass hidden mb-6" style="padding:1.5rem">
       <div class="flex justify-between items-center mb-4">
-        <h2 style="font-size:1.2rem;color:#fff">📝 تفاصيل الطلب</h2>
-        <button class="btn btn-ghost btn-sm" data-cancel="pubg">إلغاء</button>
+        <h2 style="font-size:1.2rem;color:#fff"><iconify-icon icon="ph:clipboard-text-fill" style="color:var(--purple-bright);vertical-align:-0.15em"></iconify-icon> تفاصيل الطلب</h2>
+        <button class="btn btn-ghost btn-sm" data-cancel="pubg"><iconify-icon icon="ph:x-fill"></iconify-icon> إلغاء</button>
       </div>
       <div id="pubg-orderPreview" class="card mb-4" style="padding:0.75rem"></div>
       <form id="pubg-orderForm" style="display:flex;flex-direction:column;gap:1rem">
         <div>
-          <label class="field-label">Character ID (معرّف الشخصية) *</label>
+          <label class="field-label"><iconify-icon icon="ph:identification-card-fill"></iconify-icon> Character ID (معرّف الشخصية) *</label>
           <input id="pubg-playerId" type="text" required class="field" placeholder="مثال: 5678901234" dir="ltr" />
           <div class="text-xs" style="color:#6b5a86;margin-top:0.25rem">تجده في الإعدادات → Basic Settings.</div>
         </div>
         <div class="grid-2">
           <div>
-            <label class="field-label">المنطقة (Region) *</label>
+            <label class="field-label"><iconify-icon icon="ph:globe-hemisphere-west-fill"></iconify-icon> المنطقة (Region) *</label>
             <select id="pubg-region" required class="field">
               <option value="">اختر المنطقة...</option>
               <option value="asia">آسيا</option>
@@ -643,7 +731,7 @@ select.field { cursor: pointer; }
             </select>
           </div>
           <div>
-            <label class="field-label">نظام التشغيل</label>
+            <label class="field-label"><iconify-icon icon="ph:device-mobile-fill"></iconify-icon> نظام التشغيل</label>
             <select id="pubg-platform" class="field">
               <option value="android">Android</option>
               <option value="ios">iOS</option>
@@ -651,17 +739,17 @@ select.field { cursor: pointer; }
           </div>
         </div>
         <div>
-          <label class="field-label">ملاحظات (اختياري)</label>
+          <label class="field-label"><iconify-icon icon="ph:note-pencil-fill"></iconify-icon> ملاحظات (اختياري)</label>
           <textarea id="pubg-notes" class="field" rows="2" placeholder="أي تفاصيل إضافية..."></textarea>
         </div>
         <div id="pubg-orderError" class="hidden" style="padding:0.75rem;border-radius:10px;font-size:0.85rem;background:rgba(239,68,68,0.12);border:1px solid rgba(239,68,68,0.4);color:#fca5a5"></div>
-        <button type="submit" class="btn btn-primary btn-block btn-lg">⚡ تأكيد الطلب</button>
+        <button type="submit" class="btn btn-primary btn-block btn-lg"><iconify-icon icon="ph:lightning-fill"></iconify-icon> تأكيد الطلب</button>
       </form>
     </div>
 
     <div class="grid-auto">
       <div class="card" style="padding:1.25rem">
-        <h3 style="font-size:1rem;color:#fff;margin-bottom:0.75rem;display:flex;align-items:center;gap:0.5rem"><span class="uc-icon" style="font-size:1.1em"></span>كيف تحصل على Character ID؟</h3>
+        <h3 style="font-size:1rem;color:#fff;margin-bottom:0.75rem;display:flex;align-items:center;gap:0.5rem"><iconify-icon icon="game-icons:cash" style="color:#fde047"></iconify-icon> كيف تحصل على Character ID؟</h3>
         <ol style="padding-right:1.25rem;color:#cbd5e1;font-size:0.85rem;line-height:1.8">
           <li>افتح لعبة PUBG Mobile</li>
           <li>اضغط على صورة ملفك في الأعلى</li>
@@ -670,12 +758,12 @@ select.field { cursor: pointer; }
         </ol>
       </div>
       <div class="card" style="padding:1.25rem">
-        <h3 style="font-size:1rem;color:#fff;margin-bottom:0.75rem">ℹ️ معلومات مهمة</h3>
+        <h3 style="font-size:1rem;color:#fff;margin-bottom:0.75rem"><iconify-icon icon="ph:info-fill" style="color:var(--purple-bright);vertical-align:-0.15em"></iconify-icon> معلومات مهمة</h3>
         <ul style="padding:0;list-style:none;color:#cbd5e1;font-size:0.85rem;line-height:1.8">
-          <li>✓ التسليم يدوي لضمان وصول كل UC</li>
-          <li>✓ لا نطلب كلمة سر حسابك أبداً</li>
-          <li>✓ اختر المنطقة الصحيحة لتجنب التأخير</li>
-          <li style="color:#fbbf24">⚠ تأكد من Character ID قبل التأكيد</li>
+          <li><iconify-icon icon="ph:check-circle-fill" style="color:#4ade80"></iconify-icon> التسليم يدوي لضمان وصول كل UC</li>
+          <li><iconify-icon icon="ph:check-circle-fill" style="color:#4ade80"></iconify-icon> لا نطلب كلمة سر حسابك أبداً</li>
+          <li><iconify-icon icon="ph:check-circle-fill" style="color:#4ade80"></iconify-icon> اختر المنطقة الصحيحة لتجنب التأخير</li>
+          <li style="color:#fbbf24"><iconify-icon icon="ph:warning-fill"></iconify-icon> تأكد من Character ID قبل التأكيد</li>
         </ul>
       </div>
     </div>
@@ -686,12 +774,12 @@ select.field { cursor: pointer; }
     <div class="game-hero">
       <div class="game-hero-grid"></div>
       <div style="position:relative;z-index:1;text-align:center;max-width:640px;margin:0 auto">
-        <div class="pill pill-purple" style="margin-bottom:0.75rem"><span class="coin-icon" style="font-size:1em"></span><span>FC MOBILE POINTS</span></div>
+        <div class="pill pill-purple" style="margin-bottom:0.75rem"><iconify-icon icon="ph:coin-fill" style="font-size:1.1em"></iconify-icon><span>FC MOBILE POINTS</span></div>
         <h1 class="text-gradient" style="font-size:2rem;letter-spacing:3px;margin-bottom:0.5rem">شحن نقاط FC موبايل</h1>
         <p style="color:#cbd5e1;margin-bottom:1rem">ابنِ فريقك المثالي في EA FC Mobile — اشترِ اللاعبين والعروض بنقاط FC.</p>
         <div class="flex flex-wrap gap-2 justify-center">
-          <span class="pill pill-purple">⚡ تسليم سريع</span>
-          <span class="pill pill-silver">⚽ لأبطال كرة القدم</span>
+          <span class="pill pill-purple"><iconify-icon icon="ph:lightning-fill"></iconify-icon> تسليم سريع</span>
+          <span class="pill pill-silver"><iconify-icon icon="ph:soccer-ball-fill"></iconify-icon> لأبطال كرة القدم</span>
         </div>
       </div>
     </div>
@@ -703,28 +791,28 @@ select.field { cursor: pointer; }
     </div>
 
     <div class="flex justify-between items-center mb-4 flex-wrap gap-2">
-      <h2 style="font-size:1.4rem;color:#fff">⚽ اختر باقة نقاط FC</h2>
+      <h2 style="font-size:1.4rem;color:#fff"><iconify-icon icon="ph:soccer-ball-fill" style="color:#c084fc;vertical-align:-0.15em"></iconify-icon> اختر باقة نقاط FC</h2>
       <span class="text-xs" style="color:#a896c4">الأسعار بالدولار ($)</span>
     </div>
     <div id="fb-packagesGrid" class="grid-packages mb-6">
-      <div style="grid-column:1/-1;text-align:center;color:#a896c4;padding:2rem 0">⏳ جارٍ تحميل الباقات...</div>
+      <div style="grid-column:1/-1;text-align:center;color:#a896c4;padding:2rem 0"><iconify-icon icon="ph:spinner-gap" class="icon-pulse" style="font-size:1.5rem;vertical-align:middle"></iconify-icon> جارٍ تحميل الباقات...</div>
     </div>
 
     <div id="fb-orderFormSection" class="card-glass hidden mb-6" style="padding:1.5rem">
       <div class="flex justify-between items-center mb-4">
-        <h2 style="font-size:1.2rem;color:#fff">📝 تفاصيل الطلب</h2>
-        <button class="btn btn-ghost btn-sm" data-cancel="fb">إلغاء</button>
+        <h2 style="font-size:1.2rem;color:#fff"><iconify-icon icon="ph:clipboard-text-fill" style="color:var(--purple-bright);vertical-align:-0.15em"></iconify-icon> تفاصيل الطلب</h2>
+        <button class="btn btn-ghost btn-sm" data-cancel="fb"><iconify-icon icon="ph:x-fill"></iconify-icon> إلغاء</button>
       </div>
       <div id="fb-orderPreview" class="card mb-4" style="padding:0.75rem"></div>
       <form id="fb-orderForm" style="display:flex;flex-direction:column;gap:1rem">
         <div>
-          <label class="field-label">User ID (معرّف المستخدم في FC Mobile) *</label>
+          <label class="field-label"><iconify-icon icon="ph:identification-card-fill"></iconify-icon> User ID (معرّف المستخدم في FC Mobile) *</label>
           <input id="fb-playerId" type="text" required class="field" placeholder="مثال: abc123def456" dir="ltr" />
           <div class="text-xs" style="color:#6b5a86;margin-top:0.25rem">تجده في الإعدادات → الحساب → معرّف المستخدم.</div>
         </div>
         <div class="grid-2">
           <div>
-            <label class="field-label">المنصة *</label>
+            <label class="field-label"><iconify-icon icon="ph:device-mobile-fill"></iconify-icon> المنصة *</label>
             <select id="fb-platform" required class="field">
               <option value="">اختر المنصة...</option>
               <option value="android">Android</option>
@@ -732,22 +820,22 @@ select.field { cursor: pointer; }
             </select>
           </div>
           <div>
-            <label class="field-label">حساب EA (اختياري)</label>
+            <label class="field-label"><iconify-icon icon="ph:envelope-fill"></iconify-icon> حساب EA (اختياري)</label>
             <input id="fb-eaAccount" type="text" class="field" placeholder="بريد حساب EA" dir="ltr" />
           </div>
         </div>
         <div>
-          <label class="field-label">ملاحظات (اختياري)</label>
+          <label class="field-label"><iconify-icon icon="ph:note-pencil-fill"></iconify-icon> ملاحظات (اختياري)</label>
           <textarea id="fb-notes" class="field" rows="2" placeholder="أي تفاصيل إضافية..."></textarea>
         </div>
         <div id="fb-orderError" class="hidden" style="padding:0.75rem;border-radius:10px;font-size:0.85rem;background:rgba(239,68,68,0.12);border:1px solid rgba(239,68,68,0.4);color:#fca5a5"></div>
-        <button type="submit" class="btn btn-primary btn-block btn-lg">⚽ تأكيد الطلب</button>
+        <button type="submit" class="btn btn-primary btn-block btn-lg"><iconify-icon icon="ph:soccer-ball-fill"></iconify-icon> تأكيد الطلب</button>
       </form>
     </div>
 
     <div class="grid-auto">
       <div class="card" style="padding:1.25rem">
-        <h3 style="font-size:1rem;color:#fff;margin-bottom:0.75rem;display:flex;align-items:center;gap:0.5rem"><span class="coin-icon" style="font-size:1.1em"></span>كيف تحصل على User ID؟</h3>
+        <h3 style="font-size:1rem;color:#fff;margin-bottom:0.75rem;display:flex;align-items:center;gap:0.5rem"><iconify-icon icon="ph:coin-fill" style="color:#c084fc"></iconify-icon> كيف تحصل على User ID؟</h3>
         <ol style="padding-right:1.25rem;color:#cbd5e1;font-size:0.85rem;line-height:1.8">
           <li>افتح لعبة FC Mobile</li>
           <li>اضغط على صورة ملفك</li>
@@ -756,12 +844,12 @@ select.field { cursor: pointer; }
         </ol>
       </div>
       <div class="card" style="padding:1.25rem">
-        <h3 style="font-size:1rem;color:#fff;margin-bottom:0.75rem">ℹ️ معلومات مهمة</h3>
+        <h3 style="font-size:1rem;color:#fff;margin-bottom:0.75rem"><iconify-icon icon="ph:info-fill" style="color:var(--purple-bright);vertical-align:-0.15em"></iconify-icon> معلومات مهمة</h3>
         <ul style="padding:0;list-style:none;color:#cbd5e1;font-size:0.85rem;line-height:1.8">
-          <li>✓ التسليم يدوي لضمان وصول كل نقطة</li>
-          <li>✓ لا نطلب كلمة سر حسابك أبداً</li>
-          <li>✓ اختر المنصة الصحيحة</li>
-          <li style="color:#fbbf24">⚠ تأكد من User ID قبل التأكيد</li>
+          <li><iconify-icon icon="ph:check-circle-fill" style="color:#4ade80"></iconify-icon> التسليم يدوي لضمان وصول كل نقطة</li>
+          <li><iconify-icon icon="ph:check-circle-fill" style="color:#4ade80"></iconify-icon> لا نطلب كلمة سر حسابك أبداً</li>
+          <li><iconify-icon icon="ph:check-circle-fill" style="color:#4ade80"></iconify-icon> اختر المنصة الصحيحة</li>
+          <li style="color:#fbbf24"><iconify-icon icon="ph:warning-fill"></iconify-icon> تأكد من User ID قبل التأكيد</li>
         </ul>
       </div>
     </div>
@@ -771,28 +859,28 @@ select.field { cursor: pointer; }
   <section id="page-admin" class="page">
     <div class="game-hero" style="margin-bottom:1rem">
       <div style="position:relative;z-index:1;text-align:center">
-        <div class="pill pill-purple" style="margin-bottom:0.5rem"><span class="crown-deco" style="font-size:0.9em"></span><span>ADMIN PANEL</span></div>
+        <div class="pill pill-purple" style="margin-bottom:0.5rem"><iconify-icon icon="ph:crown-fill" style="color:#fbbf24;font-size:1.1em"></iconify-icon><span>ADMIN PANEL</span></div>
         <h1 class="text-gradient" style="font-size:1.8rem;letter-spacing:3px">لوحة تحكم المشرف</h1>
         <p style="color:#a896c4;font-size:0.85rem;margin-top:0.25rem">إدارة الطلبات والباقات والإعدادات</p>
       </div>
     </div>
 
     <div class="grid-5 mb-6">
-      <div class="stat-card"><div class="text-xs" style="color:#a896c4;margin-bottom:0.25rem">إجمالي الطلبات</div><div id="cntTotal" class="stat-num">0</div></div>
-      <div class="stat-card"><div class="text-xs" style="color:#a896c4;margin-bottom:0.25rem">بانتظار</div><div id="cntPending" class="stat-num" style="color:#fbbf24;-webkit-text-fill-color:#fbbf24">0</div></div>
-      <div class="stat-card"><div class="text-xs" style="color:#a896c4;margin-bottom:0.25rem">قيد المعالجة</div><div id="cntProgress" class="stat-num" style="color:#38bdf8;-webkit-text-fill-color:#38bdf8">0</div></div>
-      <div class="stat-card"><div class="text-xs" style="color:#a896c4;margin-bottom:0.25rem">مكتمل</div><div id="cntDone" class="stat-num" style="color:#22c55e;-webkit-text-fill-color:#22c55e">0</div></div>
-      <div class="stat-card"><div class="text-xs" style="color:#a896c4;margin-bottom:0.25rem">الإيراد</div><div id="cntRevenue" class="stat-num" style="color:#fbbf24;-webkit-text-fill-color:#fbbf24">$0</div></div>
+      <div class="stat-card"><div class="text-xs" style="color:#a896c4;margin-bottom:0.25rem"><iconify-icon icon="ph:package-fill"></iconify-icon> إجمالي الطلبات</div><div id="cntTotal" class="stat-num">0</div></div>
+      <div class="stat-card"><div class="text-xs" style="color:#a896c4;margin-bottom:0.25rem"><iconify-icon icon="ph:hourglass-fill"></iconify-icon> بانتظار</div><div id="cntPending" class="stat-num" style="color:#fbbf24;-webkit-text-fill-color:#fbbf24">0</div></div>
+      <div class="stat-card"><div class="text-xs" style="color:#a896c4;margin-bottom:0.25rem"><iconify-icon icon="ph:spinner-gap-fill"></iconify-icon> قيد المعالجة</div><div id="cntProgress" class="stat-num" style="color:#38bdf8;-webkit-text-fill-color:#38bdf8">0</div></div>
+      <div class="stat-card"><div class="text-xs" style="color:#a896c4;margin-bottom:0.25rem"><iconify-icon icon="ph:check-circle-fill"></iconify-icon> مكتمل</div><div id="cntDone" class="stat-num" style="color:#22c55e;-webkit-text-fill-color:#22c55e">0</div></div>
+      <div class="stat-card"><div class="text-xs" style="color:#a896c4;margin-bottom:0.25rem"><iconify-icon icon="ph:currency-circle-dollar-fill"></iconify-icon> الإيراد</div><div id="cntRevenue" class="stat-num" style="color:#fbbf24;-webkit-text-fill-color:#fbbf24">$0</div></div>
     </div>
 
     <div class="game-tabs mb-6">
-      <button class="game-tab active" data-admin-tab="all"><span class="game-tab-icon">★</span><span>الكل</span><span id="countAll" class="text-xs" style="color:#a896c4">0</span></button>
-      <button class="game-tab" data-admin-tab="freefire"><span class="game-tab-icon" style="background:rgba(6,182,212,0.2);color:#67e8f9">FF</span><span>فري فاير</span><span id="countFreefire" class="text-xs" style="color:#a896c4">0</span></button>
-      <button class="game-tab" data-admin-tab="pubg"><span class="game-tab-icon" style="background:rgba(250,204,21,0.2);color:#fde047">UC</span><span>ببجي</span><span id="countPubg" class="text-xs" style="color:#a896c4">0</span></button>
-      <button class="game-tab" data-admin-tab="football"><span class="game-tab-icon">FC</span><span>كرة القدم</span><span id="countFootball" class="text-xs" style="color:#a896c4">0</span></button>
+      <button class="game-tab active" data-admin-tab="all"><span class="game-tab-icon"><iconify-icon icon="ph:squares-four-fill"></iconify-icon></span><span>الكل</span><span id="countAll" class="text-xs" style="color:#a896c4">0</span></button>
+      <button class="game-tab" data-admin-tab="freefire"><span class="game-tab-icon" style="background:rgba(6,182,212,0.2);color:#67e8f9"><iconify-icon icon="game-icons:diamond"></iconify-icon></span><span>فري فاير</span><span id="countFreefire" class="text-xs" style="color:#a896c4">0</span></button>
+      <button class="game-tab" data-admin-tab="pubg"><span class="game-tab-icon" style="background:rgba(250,204,21,0.2);color:#fde047"><iconify-icon icon="game-icons:cash"></iconify-icon></span><span>ببجي</span><span id="countPubg" class="text-xs" style="color:#a896c4">0</span></button>
+      <button class="game-tab" data-admin-tab="football"><span class="game-tab-icon"><iconify-icon icon="ph:soccer-ball-fill"></iconify-icon></span><span>كرة القدم</span><span id="countFootball" class="text-xs" style="color:#a896c4">0</span></button>
       <div style="flex:1"></div>
-      <button class="game-tab" data-admin-tab="packages"><span class="game-tab-icon">📦</span><span>الباقات</span></button>
-      <button class="game-tab" data-admin-tab="settings"><span class="game-tab-icon">⚙</span><span>الإعدادات</span></button>
+      <button class="game-tab" data-admin-tab="packages"><span class="game-tab-icon"><iconify-icon icon="ph:archive-fill"></iconify-icon></span><span>الباقات</span></button>
+      <button class="game-tab" data-admin-tab="settings"><span class="game-tab-icon"><iconify-icon icon="ph:gear-six-fill"></iconify-icon></span><span>الإعدادات</span></button>
     </div>
 
     <div id="admin-ordersPanel">
@@ -800,14 +888,14 @@ select.field { cursor: pointer; }
         <input id="adminSearch" type="text" class="field" style="flex:1;min-width:180px" placeholder="🔍 بحث برقم الطلب أو ID أو البريد..." />
         <select id="adminFilter" class="field" style="width:auto">
           <option value="all">كل الحالات</option>
-          <option value="pending">⏳ بانتظار</option>
-          <option value="progress">🔄 قيد المعالجة</option>
-          <option value="done">✅ مكتمل</option>
-          <option value="cancelled">❌ ملغي</option>
+          <option value="pending"><iconify-icon icon="ph:hourglass-fill"></iconify-icon> بانتظار</option>
+          <option value="progress">قيد المعالجة</option>
+          <option value="done">مكتمل</option>
+          <option value="cancelled">ملغي</option>
         </select>
       </div>
       <div id="adminOrdersList" style="display:flex;flex-direction:column;gap:0.75rem">
-        <div class="card" style="padding:2rem;text-align:center;color:#a896c4">⏳ جارٍ تحميل الطلبات...</div>
+        <div class="card" style="padding:2rem;text-align:center;color:#a896c4"><iconify-icon icon="ph:spinner-gap" class="icon-pulse" style="font-size:1.5rem;vertical-align:middle"></iconify-icon> جارٍ تحميل الطلبات...</div>
       </div>
     </div>
 
@@ -819,7 +907,7 @@ select.field { cursor: pointer; }
           <button class="game-tab" data-pkg-filter="pubg">ببجي</button>
           <button class="game-tab" data-pkg-filter="football">كرة القدم</button>
         </div>
-        <button id="addPkgBtn" class="btn btn-primary btn-sm">+ إضافة باقة</button>
+        <button id="addPkgBtn" class="btn btn-primary btn-sm"><iconify-icon icon="ph:plus-fill"></iconify-icon> إضافة باقة</button>
       </div>
       <div id="adminPackagesList" class="grid-admin-pkg"></div>
     </div>
@@ -828,38 +916,38 @@ select.field { cursor: pointer; }
       <div class="grid-auto">
         <!-- إدارة المشرفين -->
         <div class="card" style="padding:1.25rem">
-          <h3 style="font-size:1.1rem;color:#fff;margin-bottom:0.5rem;display:flex;align-items:center;gap:0.5rem"><span class="crown-deco" style="font-size:1em"></span>إدارة المشرفين</h3>
+          <h3 style="font-size:1.1rem;color:#fff;margin-bottom:0.5rem;display:flex;align-items:center;gap:0.5rem"><iconify-icon icon="ph:crown-fill" style="color:#fbbf24"></iconify-icon> إدارة المشرفين</h3>
           <p class="text-sm" style="color:#a896c4;margin-bottom:1rem">أضف عدة مشرفين بـ UID واسم. يمكنك تعديل أو حذف أي مشرف (عدا الأساسي).</p>
 
           <!-- إضافة مشرف جديد -->
           <div id="addAdminBox" class="hidden" style="margin-bottom:1rem;padding:0.75rem;background:var(--purple-soft);border:1px solid var(--border-bright);border-radius:var(--radius)">
-            <label class="field-label">اسم المشرف *</label>
+            <label class="field-label"><iconify-icon icon="ph:user-fill"></iconify-icon> اسم المشرف *</label>
             <input id="newAdminName" type="text" class="field mb-3" placeholder="مثال: أحمد، Admin 2..." />
-            <label class="field-label">UID المشرف *</label>
+            <label class="field-label"><iconify-icon icon="ph:identification-card-fill"></iconify-icon> UID المشرف *</label>
             <input id="newAdminUid" type="text" class="field mb-3" dir="ltr" placeholder="ألصق UID المستخدم هنا..." />
             <div class="flex gap-2">
-              <button id="confirmAddAdminBtn" class="btn btn-primary btn-sm flex-1">✓ إضافة</button>
-              <button id="cancelAddAdminBtn" class="btn btn-ghost btn-sm">إلغاء</button>
+              <button id="confirmAddAdminBtn" class="btn btn-primary btn-sm flex-1"><iconify-icon icon="ph:check-fill"></iconify-icon> إضافة</button>
+              <button id="cancelAddAdminBtn" class="btn btn-ghost btn-sm"><iconify-icon icon="ph:x-fill"></iconify-icon> إلغاء</button>
             </div>
-            <p class="text-xs" style="color:#6b5a86;margin-top:0.5rem">💡 تجد UID أي مستخدم في Firebase Console → Authentication → Users</p>
+            <p class="text-xs" style="color:#6b5a86;margin-top:0.5rem"><iconify-icon icon="ph:lightbulb-fill"></iconify-icon> تجد UID أي مستخدم في Firebase Console → Authentication → Users</p>
           </div>
-          <button id="addAdminBtn" class="btn btn-primary btn-sm btn-block mb-4">➕ إضافة مشرف جديد</button>
+          <button id="addAdminBtn" class="btn btn-primary btn-sm btn-block mb-4"><iconify-icon icon="ph:plus-fill"></iconify-icon> إضافة مشرف جديد</button>
 
           <!-- قائمة المشرفين -->
-          <label class="field-label">قائمة المشرفين الحاليين</label>
+          <label class="field-label"><iconify-icon icon="ph:users-three-fill"></iconify-icon> قائمة المشرفين الحاليين</label>
           <div id="adminsList" style="display:flex;flex-direction:column;gap:0.5rem">
-            <div class="text-xs" style="color:#a896c4;padding:0.5rem">⏳ جارٍ التحميل...</div>
+            <div class="text-xs" style="color:#a896c4;padding:0.5rem"><iconify-icon icon="ph:spinner-gap" class="icon-pulse"></iconify-icon> جارٍ التحميل...</div>
           </div>
 
           <div class="mt-4 text-xs" style="color:#6b5a86;border-top:1px solid var(--border);padding-top:0.75rem">
-            <div>UID حسابك: <span id="myUid" style="color:#c084fc;font-weight:700">—</span></div>
+            <div><iconify-icon icon="ph:identification-card-fill"></iconify-icon> UID حسابك: <span id="myUid" style="color:#c084fc;font-weight:700">—</span></div>
           </div>
         </div>
 
         <div class="card" style="padding:1.25rem">
-          <h3 style="font-size:1.1rem;color:#fff;margin-bottom:0.5rem">📦 بذر الباقات الافتراضية</h3>
+          <h3 style="font-size:1.1rem;color:#fff;margin-bottom:0.5rem"><iconify-icon icon="ph:archive-fill" style="color:var(--purple-bright);vertical-align:-0.15em"></iconify-icon> بذر الباقات الافتراضية</h3>
           <p class="text-sm" style="color:#a896c4;margin-bottom:1rem">إضافة جميع الباقات الافتراضية للألعاب الثلاث دفعة واحدة.</p>
-          <button id="seedBtn" class="btn btn-primary btn-sm">⚡ إضافة 19 باقة</button>
+          <button id="seedBtn" class="btn btn-primary btn-sm"><iconify-icon icon="ph:lightning-fill"></iconify-icon> إضافة 19 باقة</button>
         </div>
       </div>
     </div>
@@ -869,20 +957,20 @@ select.field { cursor: pointer; }
   <div id="editAdminModal" class="modal hidden">
     <div class="modal-box" style="max-width:420px;padding:1.5rem">
       <div class="flex justify-between items-center mb-4">
-        <h3 style="font-size:1.2rem;color:#fff">✎ تعديل المشرف</h3>
+        <h3 style="font-size:1.2rem;color:#fff"><iconify-icon icon="ph:pencil-simple-fill" style="color:var(--purple-bright);vertical-align:-0.15em"></iconify-icon> تعديل المشرف</h3>
         <button class="modal-close" data-close-modal>×</button>
       </div>
       <form id="editAdminForm" style="display:flex;flex-direction:column;gap:0.75rem">
         <input type="hidden" id="editAdminOriginalUid" />
         <div>
-          <label class="field-label">اسم المشرف *</label>
+          <label class="field-label"><iconify-icon icon="ph:user-fill"></iconify-icon> اسم المشرف *</label>
           <input id="editAdminName" type="text" required class="field" placeholder="اسم المشرف" />
         </div>
         <div>
-          <label class="field-label">UID المشرف *</label>
+          <label class="field-label"><iconify-icon icon="ph:identification-card-fill"></iconify-icon> UID المشرف *</label>
           <input id="editAdminUid" type="text" required class="field" dir="ltr" placeholder="UID..." />
         </div>
-        <button type="submit" class="btn btn-primary btn-block">💾 حفظ التغييرات</button>
+        <button type="submit" class="btn btn-primary btn-block"><iconify-icon icon="ph:floppy-disk-fill"></iconify-icon> حفظ التغييرات</button>
       </form>
     </div>
   </div>
@@ -907,18 +995,18 @@ select.field { cursor: pointer; }
     <div>
       <h4 style="font-family:var(--font-display);font-size:0.85rem;color:#fff;margin-bottom:0.5rem">روابط سريعة</h4>
       <div style="display:flex;flex-direction:column;gap:0.4rem">
-        <button class="nav-link" data-page="freefire" style="text-align:right;padding:0.2rem 0">شحن فري فاير</button>
-        <button class="nav-link" data-page="pubg" style="text-align:right;padding:0.2rem 0">شحن ببجي موبايل</button>
-        <button class="nav-link" data-page="football" style="text-align:right;padding:0.2rem 0">شحن FC موبايل</button>
+        <button class="nav-link" data-page="freefire" style="text-align:right;padding:0.2rem 0"><iconify-icon icon="game-icons:diamond" style="color:#67e8f9"></iconify-icon> شحن فري فاير</button>
+        <button class="nav-link" data-page="pubg" style="text-align:right;padding:0.2rem 0"><iconify-icon icon="game-icons:cash" style="color:#fde047"></iconify-icon> شحن ببجي موبايل</button>
+        <button class="nav-link" data-page="football" style="text-align:right;padding:0.2rem 0"><iconify-icon icon="ph:soccer-ball-fill" style="color:#c084fc"></iconify-icon> شحن FC موبايل</button>
       </div>
     </div>
     <div>
       <h4 style="font-family:var(--font-display);font-size:0.85rem;color:#fff;margin-bottom:0.5rem">لماذا QUANTUM؟</h4>
       <ul style="list-style:none;padding:0;margin:0;font-size:0.8rem;color:#a896c4;line-height:1.8">
-        <li>✅ تسليم آمن 100%</li>
-        <li>⚡ سرعة فائقة</li>
-        <li>💬 دعم متواصل</li>
-        <li>🔒 بياناتك في أمان</li>
+        <li><iconify-icon icon="ph:shield-check-fill" style="color:#4ade80"></iconify-icon> تسليم آمن 100%</li>
+        <li><iconify-icon icon="ph:lightning-fill" style="color:#fbbf24"></iconify-icon> سرعة فائقة</li>
+        <li><iconify-icon icon="ph:headset-fill" style="color:#c084fc"></iconify-icon> دعم متواصل</li>
+        <li><iconify-icon icon="ph:lock-key-fill" style="color:#67e8f9"></iconify-icon> بياناتك في أمان</li>
       </ul>
     </div>
   </div>
@@ -934,15 +1022,15 @@ select.field { cursor: pointer; }
 <div id="authModal" class="modal hidden">
   <div class="modal-box" style="max-width:400px;padding:1.5rem">
     <div class="flex justify-between items-center mb-4">
-      <h3 id="authTitle" style="font-size:1.2rem;color:#fff">تسجيل الدخول</h3>
+      <h3 id="authTitle" style="font-size:1.2rem;color:#fff"><iconify-icon icon="ph:sign-in-fill" style="color:var(--purple-bright);vertical-align:-0.15em"></iconify-icon> تسجيل الدخول</h3>
       <button class="modal-close" data-close-modal>×</button>
     </div>
     <div id="authError" class="hidden" style="padding:0.75rem;border-radius:10px;font-size:0.85rem;background:rgba(239,68,68,0.12);border:1px solid rgba(239,68,68,0.4);color:#fca5a5;margin-bottom:0.75rem"></div>
     <form id="authForm" style="display:flex;flex-direction:column;gap:0.75rem">
-      <div id="nameField" class="hidden"><label class="field-label">الاسم</label><input id="authName" type="text" class="field" placeholder="اسمك" /></div>
-      <div><label class="field-label">البريد الإلكتروني</label><input id="authEmail" type="email" required class="field" placeholder="you@example.com" dir="ltr" /></div>
-      <div><label class="field-label">كلمة السر</label><input id="authPass" type="password" required class="field" placeholder="••••••••" dir="ltr" /></div>
-      <button type="submit" id="authSubmit" class="btn btn-primary btn-block btn-lg">دخول</button>
+      <div id="nameField" class="hidden"><label class="field-label"><iconify-icon icon="ph:user-fill"></iconify-icon> الاسم</label><input id="authName" type="text" class="field" placeholder="اسمك" /></div>
+      <div><label class="field-label"><iconify-icon icon="ph:envelope-fill"></iconify-icon> البريد الإلكتروني</label><input id="authEmail" type="email" required class="field" placeholder="you@example.com" dir="ltr" /></div>
+      <div><label class="field-label"><iconify-icon icon="ph:lock-key-fill"></iconify-icon> كلمة السر</label><input id="authPass" type="password" required class="field" placeholder="••••••••" dir="ltr" /></div>
+      <button type="submit" id="authSubmit" class="btn btn-primary btn-block btn-lg"><iconify-icon icon="ph:sign-in-fill"></iconify-icon> دخول</button>
     </form>
     <div style="display:flex;align-items:center;gap:0.75rem;margin:1rem 0;font-size:0.75rem;color:#6b5a86"><div style="flex:1;height:1px;background:#334155"></div>أو<div style="flex:1;height:1px;background:#334155"></div></div>
     <button id="googleBtn" class="btn btn-ghost btn-block" style="display:flex;align-items:center;justify-content:center;gap:0.5rem">
@@ -958,27 +1046,27 @@ select.field { cursor: pointer; }
 <div id="ordersModal" class="modal hidden">
   <div class="modal-box" style="max-width:600px;padding:1.5rem">
     <div class="flex justify-between items-center mb-4">
-      <h3 style="font-size:1.2rem;color:#fff">📦 طلباتي</h3>
+      <h3 style="font-size:1.2rem;color:#fff"><iconify-icon icon="ph:package-fill" style="color:var(--purple-bright);vertical-align:-0.15em"></iconify-icon> طلباتي</h3>
       <button class="modal-close" data-close-modal>×</button>
     </div>
-    <div id="ordersListBody" style="display:flex;flex-direction:column;gap:0.75rem">⏳ جارٍ التحميل...</div>
+    <div id="ordersListBody" style="display:flex;flex-direction:column;gap:0.75rem"><iconify-icon icon="ph:spinner-gap" class="icon-pulse"></iconify-icon> جارٍ التحميل...</div>
   </div>
 </div>
 
 <div id="successModal" class="modal hidden">
   <div class="modal-box" style="max-width:400px;padding:1.5rem;text-align:center">
     <div style="width:72px;height:72px;margin:0 auto 1rem;border-radius:50%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#22c55e,#15803d);box-shadow:0 0 40px rgba(34,197,94,0.5)">
-      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <iconify-icon icon="ph:check-bold" style="font-size:2.5rem;color:#fff"></iconify-icon>
     </div>
     <h3 style="font-size:1.5rem;color:#fff;margin-bottom:0.5rem">تم استلام طلبك! 🎉</h3>
     <p style="color:#cbd5e1;margin-bottom:1rem">رقم طلبك هو:</p>
     <div class="card mb-4" style="padding:0.75rem">
       <div id="successOrderId" style="font-family:monospace;font-size:1.5rem;color:#c084fc;font-weight:700" dir="ltr">QM-XXXXXX</div>
     </div>
-    <p class="text-xs" style="color:#6b5a86;margin-bottom:1.25rem">احفظ هذا الرقم لمتابعة طلبك. سيتم تحديث الحالة عند التسليم.</p>
+    <p class="text-xs" style="color:#6b5a86;margin-bottom:1.25rem"><iconify-icon icon="ph:info-fill"></iconify-icon> احفظ هذا الرقم لمتابعة طلبك. سيتم تحديث الحالة عند التسليم.</p>
     <div class="flex gap-2">
-      <button class="btn btn-ghost btn-block" data-close-modal>إغلاق</button>
-      <button id="successMyOrders" class="btn btn-primary btn-block">عرض طلباتي</button>
+      <button class="btn btn-ghost btn-block" data-close-modal><iconify-icon icon="ph:x-fill"></iconify-icon> إغلاق</button>
+      <button id="successMyOrders" class="btn btn-primary btn-block"><iconify-icon icon="ph:package-fill"></iconify-icon> عرض طلباتي</button>
     </div>
   </div>
 </div>
@@ -986,34 +1074,34 @@ select.field { cursor: pointer; }
 <div id="pkgModal" class="modal hidden">
   <div class="modal-box" style="max-width:420px;padding:1.5rem">
     <div class="flex justify-between items-center mb-4">
-      <h3 id="pkgModalTitle" style="font-size:1.2rem;color:#fff">إضافة باقة</h3>
+      <h3 id="pkgModalTitle" style="font-size:1.2rem;color:#fff"><iconify-icon icon="ph:archive-fill" style="color:var(--purple-bright);vertical-align:-0.15em"></iconify-icon> إضافة باقة</h3>
       <button class="modal-close" data-close-modal>×</button>
     </div>
     <form id="pkgForm" style="display:flex;flex-direction:column;gap:0.75rem">
       <input type="hidden" id="pkgId" />
-      <div><label class="field-label">اللعبة *</label>
+      <div><label class="field-label"><iconify-icon icon="ph:game-controller-fill"></iconify-icon> اللعبة *</label>
         <select id="pkgGame" required class="field">
           <option value="freefire">فري فاير (جوهرة)</option>
           <option value="pubg">ببجي (UC)</option>
           <option value="football">FC موبايل (نقطة)</option>
         </select>
       </div>
-      <div><label class="field-label">الكمية *</label><input id="pkgAmount" type="number" required min="1" class="field" placeholder="مثال: 110" /></div>
-      <div><label class="field-label">السعر بالدولار *</label><input id="pkgPrice" type="number" required min="0" step="0.01" class="field" placeholder="مثال: 1.00" dir="ltr" /></div>
-      <div><label class="field-label">العنوان (اختياري)</label><input id="pkgTitle" type="text" class="field" placeholder="مثال: باقة المبتدئ" /></div>
-      <div><label class="field-label">شارة (اختياري)</label>
+      <div><label class="field-label"><iconify-icon icon="ph:stack-fill"></iconify-icon> الكمية *</label><input id="pkgAmount" type="number" required min="1" class="field" placeholder="مثال: 110" /></div>
+      <div><label class="field-label"><iconify-icon icon="ph:currency-circle-dollar-fill"></iconify-icon> السعر بالدولار *</label><input id="pkgPrice" type="number" required min="0" step="0.01" class="field" placeholder="مثال: 1.00" dir="ltr" /></div>
+      <div><label class="field-label"><iconify-icon icon="ph:tag-fill"></iconify-icon> العنوان (اختياري)</label><input id="pkgTitle" type="text" class="field" placeholder="مثال: باقة المبتدئ" /></div>
+      <div><label class="field-label"><iconify-icon icon="ph:star-fill"></iconify-icon> شارة (اختياري)</label>
         <select id="pkgBadge" class="field">
           <option value="">بدون</option>
-          <option value="popular">🔥 الأكثر طلباً</option>
-          <option value="best">💎 أفضل قيمة</option>
-          <option value="new">✨ جديد</option>
+          <option value="popular">الأكثر طلباً</option>
+          <option value="best">أفضل قيمة</option>
+          <option value="new">جديد</option>
         </select>
       </div>
       <div class="flex items-center gap-2">
         <input id="pkgActive" type="checkbox" style="width:1rem;height:1rem;accent-color:var(--purple)" checked />
-        <label for="pkgActive" class="text-sm" style="color:#cbd5e1">مفعّلة (ظاهرة للمستخدمين)</label>
+        <label for="pkgActive" class="text-sm" style="color:#cbd5e1"><iconify-icon icon="ph:eye-fill"></iconify-icon> مفعّلة (ظاهرة للمستخدمين)</label>
       </div>
-      <button type="submit" class="btn btn-primary btn-block">💾 حفظ</button>
+      <button type="submit" class="btn btn-primary btn-block"><iconify-icon icon="ph:floppy-disk-fill"></iconify-icon> حفظ</button>
     </form>
   </div>
 </div>
@@ -1067,7 +1155,6 @@ const STATUS = {
 
 // ===== الحالة =====
 let currentUser = null, isAdmin = false, isPrimaryAdmin = false;
-let adminsList = []; // قائمة UID المشرفين
 let allOrders = [], allPackages = [];
 let currentPage = "home", currentAdminTab = "all", currentPkgFilter = "all";
 let unsubOrders = null, unsubPackages = null, unsubUserOrders = null;
@@ -1104,21 +1191,25 @@ function genOrderId() {
 }
 
 // ===== تحميل قائمة المشرفين =====
+// بنية البيانات في config/admin:
+//   list: ["uid1", "uid2"]  (مصفوفة UID نصية — تستخدمها قواعد الأمان)
+//   names: { "uid1": "أحمد", "uid2": "Admin 2" }  (خريطة uid → اسم للعرض)
+let adminsList = [];       // [{uid, name}, ...]
+let adminNamesMap = {};    // {uid: name} - مرجع سريع
+
 async function loadAdmins() {
   try {
     const snap = await getDoc(doc(db, CONFIG_COL, ADMIN_DOC_ID));
-    if (snap.exists() && Array.isArray(snap.data().list)) {
-      // التنسيق الجديد: [{uid, name}, ...]
-      adminsList = snap.data().list.map(a =>
-        typeof a === "string" ? { uid: a, name: "مشرف" } : { uid: a.uid, name: a.name || "مشرف" }
-      );
-    } else if (snap.exists() && snap.data().uid) {
-      // توافق مع الإصدار القديم (uid واحد)
-      adminsList = [{ uid: snap.data().uid, name: "مشرف" }];
+    if (snap.exists()) {
+      const data = snap.data();
+      const uids = Array.isArray(data.list) ? data.list : (data.uid ? [data.uid] : []);
+      const names = (data.names && typeof data.names === "object") ? data.names : {};
+      adminsList = uids.map(uid => ({ uid, name: names[uid] || "مشرف" }));
+      adminNamesMap = names;
     } else {
-      adminsList = [];
+      adminsList = []; adminNamesMap = {};
     }
-  } catch (e) { adminsList = []; }
+  } catch (e) { adminsList = []; adminNamesMap = {}; }
   // المشرف الأساسي دائماً مشرف (ضمنياً)
 }
 
@@ -1719,6 +1810,15 @@ $("addAdminBtn").addEventListener("click", () => {
 $("cancelAddAdminBtn").addEventListener("click", () => {
   $("addAdminBox").classList.add("hidden");
 });
+
+// دالة مساعدة: تبني {list, names} من adminsList للحفظ في Firestore
+function buildAdminData(list) {
+  const uids = list.map(a => a.uid);
+  const names = {};
+  list.forEach(a => { names[a.uid] = a.name || "مشرف"; });
+  return { list: uids, names, updatedAt: serverTimestamp() };
+}
+
 $("confirmAddAdminBtn").addEventListener("click", async () => {
   const newName = $("newAdminName").value.trim();
   const newUid = $("newAdminUid").value.trim();
@@ -1728,8 +1828,9 @@ $("confirmAddAdminBtn").addEventListener("click", async () => {
   if (adminsList.some(a => a.uid === newUid)) { toast("هذا المشرف موجود بالفعل", "err"); return; }
   try {
     const newList = [...adminsList, { uid: newUid, name: newName }];
-    await setDoc(doc(db, CONFIG_COL, ADMIN_DOC_ID), { list: newList, updatedAt: serverTimestamp() }, { merge: true });
+    await setDoc(doc(db, CONFIG_COL, ADMIN_DOC_ID), buildAdminData(newList), { merge: true });
     adminsList = newList;
+    adminNamesMap = buildAdminData(newList).names;
     renderAdminsList();
     $("addAdminBox").classList.add("hidden");
     toast("✓ تمت إضافة المشرف", "ok");
@@ -1749,8 +1850,9 @@ document.addEventListener("click", async (e) => {
   if (!confirm(`متأكد من حذف المشرف "${admin?.name || uidToRemove}"؟ سيفقد صلاحياته فوراً.`)) return;
   try {
     const newList = adminsList.filter(a => a.uid !== uidToRemove);
-    await setDoc(doc(db, CONFIG_COL, ADMIN_DOC_ID), { list: newList, updatedAt: serverTimestamp() }, { merge: true });
+    await setDoc(doc(db, CONFIG_COL, ADMIN_DOC_ID), buildAdminData(newList), { merge: true });
     adminsList = newList;
+    adminNamesMap = buildAdminData(newList).names;
     renderAdminsList();
     toast("✓ تم حذف المشرف", "ok");
   } catch (err) {
@@ -1792,8 +1894,9 @@ $("editAdminForm").addEventListener("submit", async (e) => {
     const newList = adminsList.map(a =>
       a.uid === originalUid ? { uid: newUid, name: newName } : a
     );
-    await setDoc(doc(db, CONFIG_COL, ADMIN_DOC_ID), { list: newList, updatedAt: serverTimestamp() }, { merge: true });
+    await setDoc(doc(db, CONFIG_COL, ADMIN_DOC_ID), buildAdminData(newList), { merge: true });
     adminsList = newList;
+    adminNamesMap = buildAdminData(newList).names;
     renderAdminsList();
     $("editAdminModal").classList.add("hidden");
     // تحديث شارة الترحيب إن كان التعديل للمستخدم الحالي
